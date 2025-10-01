@@ -2,7 +2,7 @@
 featured: true
 layout: layouts/post.njk
 title: "Implementing a Digital Asset Management Platform"
-period: "2023–2024"
+period: "2021–2022"
 order: 9
 blurb: "We all know the struggle: someone emails <strong>Final_Copy_v2_Edited(final-FOR-REAL)_3.pdf</strong> to your client. A few minutes later, you get the dreaded reply-all email saying “Sorry, NEW updated final version is attached!” It had to stop."
 tags:
