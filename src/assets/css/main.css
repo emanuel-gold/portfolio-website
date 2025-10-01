@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@plugin "@tailwindcss/typography";
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  body {
+    font-family: "Inter", "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  p a {
+    text-decoration: underline;
+  }
+
+  p a:hover {
+    @apply decoration-brand-fuchsia;
+  }
+
+  h1 {
+    @apply mb-4 text-4xl font-black leading-tight sm:text-5xl;
+  }
+  h2 {
+    @apply text-3xl font-bold tracking-tight sm:text-4xl mb-4;
+  }
+  p,
+  ul,
+  ol {
+    @apply mb-4;
+  }
+  ul {
+    @apply list-inside list-disc;
+  }
+
+  *,
+  ::before,
+  ::after {
+    @apply dark:border-gray-200;
+    border-color: #ccc;
+  }
+
+  #progress-bar-wrapper {
+    @apply w-full h-1 z-[49];
+  }
+
+  #progress-bar {
+    @apply h-1 z-50 bg-brand-gold;
+  }
+}
+
+@layer utilities {
+  .max-w-post {
+    max-width: calc(700px + 8rem);
+  }
+  .brand-gradient-right {
+    @apply bg-gradient-to-r from-brand-fuchsia from-10% via-brand-gradient-midpoint via-60% to-brand-gold to-85%;
+  }
+
+  .brand-gradient-diagonal {
+    @apply bg-gradient-to-tr from-brand-fuchsia to-brand-gold;
+  }
+
+  .cta-solid {
+    @apply inline-flex items-center gap-2 rounded-xl bg-brand-gold hover:brand-gradient-diagonal px-4 py-2 font-medium text-gray-900 hover:bg-transparent hover:text-white;
+  }
+
+  .cta-transparent {
+    @apply transition inline-flex items-center gap-2 rounded-xl border px-4 py-2 font-medium hover:border-gray-900 hover:bg-gray-200 backdrop-blur dark:hover:bg-gray-800/70 dark:hover:border-white;
+  }
+}

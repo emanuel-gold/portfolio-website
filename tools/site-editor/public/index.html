@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Site Data Editor</title>
+    <script>
+      (function () {
+        var storageKey = "site-editor-theme";
+        var prefersDark = false;
+        try {
+          prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+        } catch (error) {}
+
+        try {
+          var storedTheme = window.localStorage.getItem(storageKey);
+          if (storedTheme === "light" || storedTheme === "dark") {
+            document.documentElement.dataset.theme = storedTheme;
+            return;
+          }
+        } catch (error) {}
+
+        document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
+      })();
+    </script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+      <nav class="editor__toolbar">
+        <div class="editor__toolbar-controls">
+          <button
+            type="button"
+            class="theme-toggle"
+            data-theme-toggle
+            aria-pressed="false"
+          >
+            Toggle theme
+          </button>
+          <button type="button" data-reset disabled>Reset</button>
+          <button type="submit" data-save form="site-editor-form" disabled>
+            Save changes
+          </button>
+        </div>
+      </nav>
+    <main class="layout">
+      <header class="layout__header">
+        <div class="layout__header-top">
+          <h1>Site data editor</h1>
+        </div>
+        <p>
+          Update <code>src/_data/site.js</code> from a local-only interface.
+          Changes are written directly to the source file so Eleventy can
+          rebuild with your updates.
+        </p>
+      </header>
+      <section class="layout__actions">
+        <form
+          id="site-editor-form"
+          data-editor-form
+          class="editor"
+          novalidate
+        >
+          <div class="editor__body" data-editor>Loading site data…</div>
+        </form>
+      </section>
+    </main>
+    <div
+      class="toast-container"
+      data-toast-container
+      aria-live="polite"
+      aria-atomic="false"
+    ></div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

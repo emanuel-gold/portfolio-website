@@ -1,0 +1,31 @@
+{% import "components/icons.njk" as icons %}
+<section id="contact" class="scroll-mt-24 py-14 sm:py-16">
+  <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-10">
+      {% if site.contact.eyebrow %}
+      <div class="mb-2 inline-block rounded-full border px-3 py-1 text-xs uppercase tracking-wider opacity-70">{{ site.contact.eyebrow }}</div>
+      {% endif %}
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{{ site.contact.title }}</h2>
+    </div>
+    <div class="rounded-3xl border p-6 text-center shadow-sm bg-white dark:bg-gray-950 dark:border-gray-800">
+      <p class="mx-auto mb-6 max-w-prose text-lg opacity-90">{{ site.contact.message }}</p>
+      <div class="flex justify-center gap-3">
+        <a
+          href="mailto:{{ site.contact.email }}"
+          class="cta-solid"
+        >
+          {{ icons.mail('w-5 h-5') }} Email me
+        </a>
+        {# 
+        <a
+          href="{{ site.contact.github.href }}"
+          class="inline-flex items-center gap-2 rounded-xl border px-5 py-2.5 font-medium hover:bg-gray-100 dark:hover:bg-gray-900"
+        > 
+        
+          {{ icons.github('w-5 h-5') }} {{ site.contact.github.label }}
+        </a>
+        #}
+      </div>
+    </div>
+  </div>
+</section>

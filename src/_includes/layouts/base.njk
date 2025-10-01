@@ -1,0 +1,38 @@
+{% set pageTitle = title or site.meta.title %}
+{% set pageDescription = description or site.meta.description %}
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ pageTitle }}</title>
+    <meta name="description" content="{{ pageDescription }}" />
+    <link rel="stylesheet" href="/assets/main.css" />
+    <link rel="icon" href="/img/Personal-Logo-Favicon-Black-background.png" sizes="192x192" type="image/webp">
+    <script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = stored || (prefersDark ? "dark" : "light");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+    {% if layout == "layouts/post.njk" %}<script src="/assets/post-scroll-progress-bar.js" defer></script>{% endif %}
+  </head>
+  <body class="min-h-screen bg-slate-100 text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100">
+    {{ content | safe }}
+    <script type="application/ld+json">
+      {{ {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": site.footer.owner,
+        "url": site.meta.url,
+        "sameAs": site.meta.sameAs,
+        "jobTitle": site.meta.jobTitle
+      } | dump | safe }}
+    </script>
+    <script src="/assets/main.js" type="module"></script>
+  </body>
+</html>

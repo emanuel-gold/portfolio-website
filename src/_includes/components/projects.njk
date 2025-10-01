@@ -1,0 +1,111 @@
+{% import "components/icons.njk" as icons %}
+{% set projects = collections.portfolio | sortByOrderThenDate %}
+{% set featuredProjects = collections.featuredPortfolio | default([]) | sortByOrderThenDate %}
+{% set featuredDefaults = featuredProjects | slice(0, 3) %}
+{% set featuredOverflow = featuredProjects | slice(3) %}
+{% set allTags = projects | allTags %}
+
+{% macro projectCard(project, isInitiallyVisible, includeInAllFilter) %}
+  <article
+    class="group flex flex-col rounded-2xl border p-5 shadow-sm transition bg-white dark:bg-gray-950 dark:border-gray-800{% if not isInitiallyVisible %} hidden{% endif %}"
+    data-project
+    data-tags="{{ project.data.tags | default([]) | join(',') }}"
+    data-featured="{{ (includeInAllFilter and 'true') or 'false' }}"
+  >
+    <div class="mb-3 items-center justify-between">
+      <h3 class="text-lg font-semibold leading-tight">
+        <a href="{{ project.url }}" class="hover:text-fuchsia-500 hover:underline">{{ project.data.title }}</a>
+      </h3>
+      <span class="text-xs opacity-60">{{ project.data.period }}</span>
+    </div>
+    <p class="mb-4 text-sm opacity-90">{{ project.data.blurb | safe}}</p>
+    <div class="mb-4 flex flex-wrap gap-2">
+      {% for tag in project.data.tags %}
+        <span class="rounded-full border px-2 py-0.5 text-xs opacity-80 dark:border-gray-800">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    <div class="flex items-center mt-auto gap-3">
+      {% if project.data.links.preview %}
+        <a href="{{ project.data.links.preview }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline">
+          {{ icons.external_link('w-4 h-4') }} Preview
+        </a>
+      {% endif %}
+      {% if project.data.links.repo %}
+        <a href="{{ project.data.links.repo }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline">
+          {{ icons.github('w-4 h-4') }} Code
+        </a>
+      {% endif %}
+      <a href="{{ project.url }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline">
+        {{ icons.file_text('w-4 h-4') }} Read case study
+      </a>
+    </div>
+  </article>
+{% endmacro %}
+<section id="projects" class="scroll-mt-24 py-14 sm:py-16">
+  <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-10">
+      <div class="mb-2 inline-block rounded-full border px-3 py-1 text-xs uppercase tracking-wider opacity-70">Recent work</div>
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">My Recent Projects</h2>
+    </div>
+
+    <div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+      <div class="flex flex-wrap items-center gap-2" data-tag-list>
+        <button
+          class="rounded-full border border-transparent bg-gray-900 px-3 py-1 text-sm text-white transition dark:bg-white dark:text-gray-900"
+          data-badge="All"
+          type="button"
+        >
+          Featured
+        </button>
+        {% for tag in allTags %}
+          <button
+            class="rounded-full border px-3 py-1 text-sm transition hover:bg-gray-100 dark:hover:bg-gray-800"
+            data-badge="{{ tag }}"
+            type="button"
+          >
+            {{ tag }}
+          </button>
+        {% endfor %}
+      </div>
+      <input
+        class="w-full rounded-xl border bg-gray-200 px-4 py-2 shadow-sm placeholder:opacity-60 focus:outline-none focus:ring dark:border-gray-800 dark:bg-gray-900 sm:w-64"
+        type="search"
+        placeholder="Search projects..."
+        data-search-input
+      />
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" data-project-grid>
+      {% if featuredDefaults | length > 0 %}
+        {% for project in featuredDefaults %}
+          {{ projectCard(project, true, true) | safe }}
+        {% endfor %}
+        {% for project in featuredOverflow %}
+          {{ projectCard(project, false, false) | safe }}
+        {% endfor %}
+        {% for project in projects %}
+          {% if project not in featuredProjects %}
+            {{ projectCard(project, false, false) | safe }}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% for project in projects %}
+          {{ projectCard(project, loop.index <= 3, loop.index <= 3) | safe }}
+        {% endfor %}
+      {% endif %}
+    </div>
+    <p class="hidden mt-4 py-4 text-center opacity-70" data-empty-state>No projects match that search.</p>
+    <div class="mt-8 inline-flex"> 
+      <a
+      href="/portfolio/"
+      class="cta-solid"
+      data-scroll
+      >
+      See all my work 
+        <svg class="overflow-visible ml-1" width="4" viewBox="0 0 3 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M0 0L3 3L0 6"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
