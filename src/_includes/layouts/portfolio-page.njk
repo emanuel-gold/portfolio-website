@@ -13,7 +13,7 @@ layout: layouts/base.njk
         <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Portfolio</h2>
       </div>
 
-      <div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+      <div class="mb-8 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
         <div class="flex flex-wrap items-center gap-2" data-tag-list>
           <button
             class="rounded-full border border-transparent bg-gray-900 px-3 py-1 text-sm text-white transition dark:bg-white dark:text-gray-900"
@@ -39,10 +39,10 @@ layout: layouts/base.njk
           data-search-input
         />
       </div>
-      <div class="grid grid-cols-1 gap-6" data-project-grid data-show-featured-only="false">
+      <div class="grid grid-cols-1 gap-10" data-project-grid data-show-featured-only="false">
         {% for project in featuredProjects %}
           <article
-            class="featured group flex flex-row rounded-2xl border overflow-hidden shadow-sm transition dark:border-gray-800"
+            class="featured group flex flex-row rounded-2xl border overflow-hidden shadow-md transition dark:border-brand-dark-shadow/45 hover:shadow-lg"
             data-project
             data-tags="{{ project.data.tags | default([]) | join(',') }}"
             data-featured="true"
@@ -87,7 +87,7 @@ layout: layouts/base.njk
         {% for project in projects %}
           {% if project not in featuredProjects %}
             <article
-              class="group flex flex-row rounded-2xl border overflow-hidden shadow-sm transition dark:border-gray-800"
+              class="group flex flex-row rounded-2xl border overflow-hidden shadow-md transition dark:border-brand-dark-shadow/45 hover:shadow-lg"
               data-project
               data-tags="{{ project.data.tags | default([]) | join(',') }}"
               data-featured="false"

@@ -6,7 +6,22 @@
 
 @layer base {
   :root {
+    --brand-gold-color: theme('colors.brand-gold');
+    --brand-fuchsia-color: theme('colors.brand-fuchsia');
+    --brand-burnt-orange-color: theme('colors.brand-burnt-orange');
+    --brand-dark-shadow-lch: theme('colors.brand-dark-shadow-lch');
+    --brand-dark-shadow-color: oklch(theme('colors.brand-dark-shadow-lch') / 1);
+    --shadow-color: rgb(0 0 0 / 0.18);
+    --full-shadow: 0 4px 6px -1px var(--full-shadow-color), 0 2px 4px -2px var(--full-shadow-color), 0 -4px 6px -1px var(--full-shadow-color), 0 -2px 4px -2px var(--full-shadow-color);
+    --full-shadow-color: rgb(0 0 0 / 0.1);
     color-scheme: light dark;
+  }
+
+  .dark {
+    --shadow-color: oklch(var(--brand-dark-shadow-lch) / var(--shadow-alpha));
+    --shadow-alpha: 0.73;
+    --full-shadow: 0 -2px 60px 6px var(--full-shadow-color); 
+    --full-shadow-color: oklch(16.692% 0.04737 266.9 / 0.729);
   }
 
   body {
@@ -21,21 +36,25 @@
     text-decoration: underline;
   }
 
-  p a:hover {
+  p a:hover,
+  header nav a:hover  {
     @apply decoration-brand-fuchsia;
   }
 
   h1 {
     @apply mb-4 text-4xl font-black leading-tight sm:text-5xl;
   }
+
   h2 {
     @apply text-3xl font-bold tracking-tight sm:text-4xl mb-4;
   }
+
   p,
   ul,
   ol {
     @apply mb-4;
   }
+
   ul {
     @apply list-inside list-disc;
   }
@@ -75,4 +94,15 @@
   .cta-transparent {
     @apply transition inline-flex items-center gap-2 rounded-xl border px-4 py-2 font-medium hover:border-gray-900 hover:bg-gray-200 backdrop-blur dark:hover:bg-gray-800/70 dark:hover:border-white;
   }
+
+  .shadow-full {
+    --tw-shadow: var(--full-shadow);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+
+  :is(.shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl) {
+    --tw-shadow-color: var(--shadow-color);
+    --tw-shadow: var(--tw-shadow-colored);
+  }
+
 }

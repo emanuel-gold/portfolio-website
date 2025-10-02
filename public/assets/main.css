@@ -555,7 +555,22 @@ video {
 }
 
 :root {
+  --brand-gold-color: oklch(0.85 0.16 86.49);
+  --brand-fuchsia-color: oklch(0.58 0.27 338.56);
+  --brand-burnt-orange-color: #F87313;
+  --brand-dark-shadow-lch: 0.51 0.25 263.16;
+  --brand-dark-shadow-color: oklch(0.51 0.25 263.16 / 1);
+  --shadow-color: rgb(0 0 0 / 0.18);
+  --full-shadow: 0 4px 6px -1px var(--full-shadow-color), 0 2px 4px -2px var(--full-shadow-color), 0 -4px 6px -1px var(--full-shadow-color), 0 -2px 4px -2px var(--full-shadow-color);
+  --full-shadow-color: rgb(0 0 0 / 0.1);
   color-scheme: light dark;
+}
+
+.dark {
+  --shadow-color: oklch(var(--brand-dark-shadow-lch) / var(--shadow-alpha));
+  --shadow-alpha: 0.73;
+  --full-shadow: 0 -2px 60px 6px var(--full-shadow-color);
+  --full-shadow-color: oklch(16.692% 0.04737 266.9 / 0.729);
 }
 
 body {
@@ -570,7 +585,8 @@ p a {
   text-decoration: underline;
 }
 
-p a:hover {
+p a:hover,
+  header nav a:hover {
   text-decoration-color: oklch(0.58 0.27 338.56);
 }
 
@@ -1424,6 +1440,10 @@ ul {
   gap: 0.25rem;
 }
 
+.gap-10 {
+  gap: 2.5rem;
+}
+
 .gap-2 {
   gap: 0.5rem;
 }
@@ -1540,9 +1560,9 @@ ul {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-lightGradientStart {
-  --tw-gradient-from: #22d3ee1a var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(34 211 238 / 0) var(--tw-gradient-to-position);
+.from-light-gradient-start {
+  --tw-gradient-from: #DEF8FC var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(222 248 252 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -1798,6 +1818,12 @@ ul {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -1906,6 +1932,16 @@ ul {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
   background-color: rgb(31 41 55 / 0.7);
+}
+
+.shadow-full {
+  --tw-shadow: var(--full-shadow);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+
+:is(.shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl) {
+  --tw-shadow-color: var(--shadow-color);
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 @plugin "@tailwindcss/typography";
@@ -2206,6 +2242,17 @@ ul {
   opacity: 1;
 }
 
+.hover\:shadow-lg:hover {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+:is(.shadow, .shadow-sm, .shadow-md,.hover\:shadow-lg:hover, .shadow-xl, .shadow-2xl) {
+  --tw-shadow-color: var(--shadow-color);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -2215,6 +2262,10 @@ ul {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.dark\:border-brand-dark-shadow\/45:is(.dark *) {
+  border-color: oklch(var(--brand-dark-shadow-lch) / 0.45);
 }
 
 .dark\:border-gray-700:is(.dark *) {
@@ -2257,7 +2308,7 @@ ul {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.dark\:to-darkGradientEnd:is(.dark *) {
+.dark\:to-dark-gradient-end:is(.dark *) {
   --tw-gradient-to: #060d23 var(--tw-gradient-to-position);
 }
 
@@ -2374,8 +2425,8 @@ ul {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .md\:gap-12 {
-    gap: 3rem;
+  .md\:gap-16 {
+    gap: 4rem;
   }
 }
 
