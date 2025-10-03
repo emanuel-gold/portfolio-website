@@ -4,6 +4,10 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        display: ['"Bebas Neue"', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+      },
       typography: {
         DEFAULT: { 
           css: { 
