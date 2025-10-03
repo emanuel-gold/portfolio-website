@@ -48,7 +48,7 @@ layout: layouts/base.njk
             data-featured="true"
           >
             {% if project.data.thumbnail %}
-              <div class="flex flex-[0_0_130px] sm:flex-[0_0_167.7px]">
+              <div class="hidden sm:flex sm:flex-[0_0_167.7px]">
                 <img class="object-cover" src="{{ project.data.thumbnail }}">
               </div>
             {% endif %}
@@ -93,7 +93,7 @@ layout: layouts/base.njk
               data-featured="false"
             >
               {% if project.data.thumbnail %}
-                <div class="flex flex-[0_0_130px] sm:flex-[0_0_167.7px]">
+                <div class="hidden sm:flex sm:flex-[0_0_167.7px]">
                   <img class="object-cover" src="{{ project.data.thumbnail }}">
                 </div>
               {% endif %}
