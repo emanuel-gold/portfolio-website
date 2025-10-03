@@ -36,15 +36,19 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 { @apply font-display; font-weight: 400; }
+  h1, h2, h3, h4, h5, h6 { @apply font-display; }
 
+  #siteLogo { 
+    @apply font-display; 
+    letter-spacing: 0.1em; 
+  }
   h1 {
-    font-size: var(--h1-size);
+    font-size: var(--display-lg-size);
     line-height: var(--h1-line-height);
     letter-spacing: var(--h1-letter-spacing);
   }
   h2 {
-    font-size: var(--h2-size);
+    font-size: var(--display-md-size);
     line-height: var(--h2-line-height);
     letter-spacing: var(--h2-letter-spacing);
   }
@@ -99,15 +103,13 @@
     letter-spacing: var(--body-letter-spacing);
     font-weight: var(--body-weight);
   }
-  /* “Lead” paragraph default if you use <p> first-child patterns 
-  p:first-of-type {
+  .body-xl {
     font-size: var(--body-xl-size);
     line-height: var(--body-xl-line-height);
     letter-spacing: var(--body-xl-letter-spacing);
     font-weight: var(--body-xl-weight);
   }
-*/
-  small {
+  .small {
     font-size: var(--body-sm-size);
     line-height: var(--body-sm-line-height);
     letter-spacing: var(--body-sm-letter-spacing);

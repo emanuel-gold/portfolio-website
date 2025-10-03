@@ -8,10 +8,10 @@
   --display-lg-letter-spacing: 0.015em;
   --display-md-size: 43.75px;
   --display-md-line-height: 1.55;
-  --display-md-letter-spacing: 0.023em;
+  --display-md-letter-spacing: 0.03em;
   --h1-size: 37.9px;
   --h1-line-height: 1.55;
-  --h1-letter-spacing: 0.023em;
+  --h1-letter-spacing: 0.03em;
   --h2-size: 28.43px;
   --h2-line-height: 1.55;
   --h2-letter-spacing: 0.03em;
@@ -26,35 +26,35 @@
   --h5-letter-spacing: 0.045em;
   --h6-size: 18.47px;
   --h6-line-height: 1.6;
-  --h6-letter-spacing: 0.045em;
+  --h6-letter-spacing: normal;
   --body-xl-size: 17.19px;
   --body-xl-weight: 400;
   --body-xl-line-height: 1.6;
-  --body-xl-letter-spacing: 0.045em;
+  --body-xl-letter-spacing: normal;
   --body-size: 16px;
   --body-weight: 400;
   --body-line-height: 1.6;
-  --body-letter-spacing: 0.045em;
+  --body-letter-spacing: normal;
   --body-sm-size: 14.89px;
   --body-sm-weight: 400;
   --body-sm-line-height: 1.65;
-  --body-sm-letter-spacing: 0.045em;
+  --body-sm-letter-spacing: normal;
   --caption-lg-size: 13.86px;
   --caption-lg-weight: 400;
   --caption-lg-line-height: 1.65;
-  --caption-lg-letter-spacing: 0.045em;
+  --caption-lg-letter-spacing: normal;
   --caption-size: 12.9px;
   --caption-weight: 400;
   --caption-line-height: 1.65;
-  --caption-letter-spacing: 0.045em;
+  --caption-letter-spacing: normal;
   --caption-sm-size: 12px;
   --caption-sm-weight: 300;
   --caption-sm-line-height: 1.65;
-  --caption-sm-letter-spacing: 0.045em;
+  --caption-sm-letter-spacing: normal;
   --overline-size: 11.17px;
   --overline-weight: 500;
   --overline-line-height: 1.65;
-  --overline-letter-spacing: 0.045em;
+  --overline-letter-spacing: normal;
 }
 
 *, ::before, ::after {
@@ -642,17 +642,21 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
+}
+
+#siteLogo {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.1em;
 }
 
 h1 {
-  font-size: var(--h1-size);
+  font-size: var(--display-lg-size);
   line-height: var(--h1-line-height);
   letter-spacing: var(--h1-letter-spacing);
 }
 
 h2 {
-  font-size: var(--h2-size);
+  font-size: var(--display-md-size);
   line-height: var(--h2-line-height);
   letter-spacing: var(--h2-letter-spacing);
 }
@@ -711,22 +715,6 @@ p {
   line-height: var(--body-line-height);
   letter-spacing: var(--body-letter-spacing);
   font-weight: var(--body-weight);
-}
-
-/* “Lead” paragraph default if you use <p> first-child patterns 
-  p:first-of-type {
-    font-size: var(--body-xl-size);
-    line-height: var(--body-xl-line-height);
-    letter-spacing: var(--body-xl-letter-spacing);
-    font-weight: var(--body-xl-weight);
-  }
-*/
-
-small {
-  font-size: var(--body-sm-size);
-  line-height: var(--body-sm-line-height);
-  letter-spacing: var(--body-sm-letter-spacing);
-  font-weight: var(--body-sm-weight);
 }
 
 figcaption,
@@ -1816,11 +1804,6 @@ ul {
   line-height: 2.25rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1834,6 +1817,15 @@ ul {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-\[0\.65rem\] {
+  font-size: 0.65rem;
 }
 
 .font-black {
@@ -1867,22 +1859,6 @@ ul {
 
 .leading-tight {
   line-height: 1.25;
-}
-
-.tracking-tight {
-  letter-spacing: -0.025em;
-}
-
-.tracking-wide {
-  letter-spacing: 0.025em;
-}
-
-.tracking-wider {
-  letter-spacing: 0.05em;
-}
-
-.tracking-widest {
-  letter-spacing: 0.1em;
 }
 
 .text-fuchsia-600 {
@@ -2518,11 +2494,6 @@ ul {
     font-size: 2.25rem;
     line-height: 2.5rem;
   }
-
-  .sm\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
-  }
 }
 
 @media (min-width: 768px) {
@@ -2567,5 +2538,17 @@ ul {
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .lg\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 }
