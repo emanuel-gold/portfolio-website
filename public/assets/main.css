@@ -1799,9 +1799,8 @@ ul {
   text-align: center;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.text-\[0\.65rem\] {
+  font-size: 0.65rem;
 }
 
 .text-lg {
@@ -1812,6 +1811,11 @@ ul {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .text-xs {
@@ -1828,21 +1832,8 @@ ul {
   font-size: 0.65rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.text-\[0\.65rem\] {
-  font-size: 0.65rem;
-}
-
 .font-black {
   font-weight: 900;
-}
-
-.font-bold {
-  font-weight: 700;
 }
 
 .font-medium {
@@ -2494,11 +2485,6 @@ ul {
   .sm\:pt-16 {
     padding-top: 4rem;
   }
-
-  .sm\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
 }
 
 @media (min-width: 768px) {
@@ -2543,11 +2529,6 @@ ul {
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
-  }
-
-  .lg\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
   }
 }
 
