@@ -3,10 +3,10 @@
   <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 items-center gap-8 py-14 sm:py-16 md:grid-cols-2">
       <div>
-        <p class="mb-3 inline-flex items-center gap-2 text-xs uppercase tracking-widest opacity-70">
+        <p class="mb-3 inline-flex items-center gap-2 text-xs uppercase opacity-70">
           <span class="h-2 w-2 rounded-full bg-emerald-500"></span> {{ site.hero.availability }}
         </p>
-        <h1 class="mb-4 text-4xl font-black leading-tight sm:text-5xl">{{ site.hero.heading | safe }}</h1>
+        <h1 class="mb-4 font-black leading-tight">{{ site.hero.heading | safe }}</h1>
         <p class="mb-8 max-w-prose text-lg opacity-90">{{ site.hero.summary }}</p>
         <div class="flex flex-wrap gap-3">
           <a

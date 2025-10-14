@@ -1,3 +1,121 @@
+:root {
+  --font-family-display: "Bebas Neue", sans-serif;
+  /* Font Family */
+  --font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  /* Type Scale */
+  --display-lg-size: 50.52px;
+  --display-lg-line-height: 1.5;
+  --display-lg-letter-spacing: 0.015em;
+  --display-md-size: 43.75px;
+  --display-md-line-height: 1.55;
+  --display-md-letter-spacing: 0.03em;
+  --h1-size: 37.9px;
+  --h1-line-height: 1.55;
+  --h1-letter-spacing: 0.03em;
+  --h2-size: 28.43px;
+  --h2-line-height: 1.55;
+  --h2-letter-spacing: 0.03em;
+  --h3-size: 24.62px;
+  --h3-line-height: 1.55;
+  --h3-letter-spacing: 0.03em;
+  --h4-size: 21.33px;
+  --h4-line-height: 1.6;
+  --h4-letter-spacing: 0.038em;
+  --h5-size: 19.85px;
+  --h5-line-height: 1.6;
+  --h5-letter-spacing: 0.045em;
+  --h6-size: 18.47px;
+  --h6-line-height: 1.6;
+  --h6-letter-spacing: normal;
+  --body-xl-size: 17.19px;
+  --body-xl-weight: 400;
+  --body-xl-line-height: 1.6;
+  --body-xl-letter-spacing: normal;
+  --body-size: 16px;
+  --body-weight: 400;
+  --body-line-height: 1.6;
+  --body-letter-spacing: normal;
+  --body-sm-size: 14.89px;
+  --body-sm-weight: 400;
+  --body-sm-line-height: 1.65;
+  --body-sm-letter-spacing: normal;
+  --caption-lg-size: 13.86px;
+  --caption-lg-weight: 400;
+  --caption-lg-line-height: 1.65;
+  --caption-lg-letter-spacing: normal;
+  --caption-size: 12.9px;
+  --caption-weight: 400;
+  --caption-line-height: 1.65;
+  --caption-letter-spacing: normal;
+  --caption-sm-size: 12px;
+  --caption-sm-weight: 300;
+  --caption-sm-line-height: 1.65;
+  --caption-sm-letter-spacing: normal;
+  --overline-size: 11.17px;
+  --overline-weight: 500;
+  --overline-line-height: 1.65;
+  --overline-letter-spacing: normal;
+}
+
+:root {
+  --font-family-display: "Bebas Neue", sans-serif;
+  /* Font Family */
+  --font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  /* Type Scale */
+  --display-lg-size: 50.52px;
+  --display-lg-line-height: 1.5;
+  --display-lg-letter-spacing: 0.015em;
+  --display-md-size: 43.75px;
+  --display-md-line-height: 1.55;
+  --display-md-letter-spacing: 0.03em;
+  --h1-size: 37.9px;
+  --h1-line-height: 1.55;
+  --h1-letter-spacing: 0.03em;
+  --h2-size: 28.43px;
+  --h2-line-height: 1.55;
+  --h2-letter-spacing: 0.03em;
+  --h3-size: 24.62px;
+  --h3-line-height: 1.55;
+  --h3-letter-spacing: 0.03em;
+  --h4-size: 21.33px;
+  --h4-line-height: 1.6;
+  --h4-letter-spacing: 0.038em;
+  --h5-size: 19.85px;
+  --h5-line-height: 1.6;
+  --h5-letter-spacing: 0.045em;
+  --h6-size: 18.47px;
+  --h6-line-height: 1.6;
+  --h6-letter-spacing: normal;
+  --body-xl-size: 17.19px;
+  --body-xl-weight: 400;
+  --body-xl-line-height: 1.6;
+  --body-xl-letter-spacing: normal;
+  --body-size: 16px;
+  --body-weight: 400;
+  --body-line-height: 1.6;
+  --body-letter-spacing: normal;
+  --body-sm-size: 14.89px;
+  --body-sm-weight: 400;
+  --body-sm-line-height: 1.65;
+  --body-sm-letter-spacing: normal;
+  --caption-lg-size: 13.86px;
+  --caption-lg-weight: 400;
+  --caption-lg-line-height: 1.65;
+  --caption-lg-letter-spacing: normal;
+  --caption-size: 12.9px;
+  --caption-weight: 400;
+  --caption-line-height: 1.65;
+  --caption-letter-spacing: normal;
+  --caption-sm-size: 12px;
+  --caption-sm-weight: 300;
+  --caption-sm-line-height: 1.65;
+  --caption-sm-letter-spacing: normal;
+  --overline-size: 11.17px;
+  --overline-weight: 500;
+  --overline-line-height: 1.65;
+  --overline-letter-spacing: normal;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -106,9 +224,8 @@
   --tw-contain-style:  ;
 }
 
-/*
-! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com
-*/
+/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
+/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -574,7 +691,110 @@ video {
 }
 
 body {
-  font-family: "Inter", "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  line-height: var(--body-line-height);
+  letter-spacing: var(--body-letter-spacing);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+#siteLogo {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+h1 {
+  font-size: var(--display-lg-size);
+  line-height: var(--h1-line-height);
+  letter-spacing: var(--h1-letter-spacing);
+}
+
+h2 {
+  font-size: var(--display-md-size);
+  line-height: var(--h2-line-height);
+  letter-spacing: var(--h2-letter-spacing);
+}
+
+h3 {
+  font-size: var(--h3-size);
+  line-height: var(--h3-line-height);
+  letter-spacing: var(--h3-letter-spacing);
+}
+
+h4 {
+  font-size: var(--h4-size);
+  line-height: var(--h4-line-height);
+  letter-spacing: var(--h4-letter-spacing);
+}
+
+h5 {
+  font-size: var(--h5-size);
+  line-height: var(--h5-line-height);
+  letter-spacing: var(--h5-letter-spacing);
+}
+
+h6 {
+  font-size: var(--h6-size);
+  line-height: var(--h6-line-height);
+  letter-spacing: var(--h6-letter-spacing);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: var(--body-size);
+  font-weight: var(--body-weight);
+  line-height: var(--body-line-height);
+  letter-spacing: var(--body-letter-spacing);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+#siteLogo {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+h1 {
+  font-size: var(--display-lg-size);
+  line-height: var(--h1-line-height);
+  letter-spacing: var(--h1-letter-spacing);
+}
+
+h2 {
+  font-size: var(--display-md-size);
+  line-height: var(--h2-line-height);
+  letter-spacing: var(--h2-letter-spacing);
+}
+
+h3 {
+  font-size: var(--h3-size);
+  line-height: var(--h3-line-height);
+  letter-spacing: var(--h3-letter-spacing);
+}
+
+h4 {
+  font-size: var(--h4-size);
+  line-height: var(--h4-line-height);
+  letter-spacing: var(--h4-letter-spacing);
+}
+
+h5 {
+  font-size: var(--h5-size);
+  line-height: var(--h5-line-height);
+  letter-spacing: var(--h5-letter-spacing);
+}
+
+h6 {
+  font-size: var(--h6-size);
+  line-height: var(--h6-line-height);
+  letter-spacing: var(--h6-letter-spacing);
 }
 
 a {
@@ -590,34 +810,68 @@ p a:hover,
   text-decoration-color: oklch(0.58 0.27 338.56);
 }
 
-h1 {
-  margin-bottom: 1rem;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  font-weight: 900;
-  line-height: 1.25;
-}
-
-@media (min-width: 640px) {
+/*
   h1 {
-    font-size: 3rem;
-    line-height: 1;
+    @apply mb-4 text-4xl font-black leading-tight sm:text-5xl;
   }
-}
 
-h2 {
-  margin-bottom: 1rem;
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-}
-
-@media (min-width: 640px) {
   h2 {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    @apply text-3xl font-bold tracking-tight sm:text-4xl mb-4;
   }
+  */
+
+/* Paragraph sizes using tokens */
+
+p {
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
+  letter-spacing: var(--body-letter-spacing);
+  font-weight: var(--body-weight);
+/*
+  h1 {
+    @apply mb-4 text-4xl font-black leading-tight sm:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl font-bold tracking-tight sm:text-4xl mb-4;
+  }
+  */
+
+/* Paragraph sizes using tokens */
+
+p {
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
+  letter-spacing: var(--body-letter-spacing);
+  font-weight: var(--body-weight);
+}
+
+figcaption,
+  table caption {
+  font-size: var(--caption-size);
+  line-height: var(--caption-line-height);
+  letter-spacing: var(--caption-letter-spacing);
+  font-weight: var(--caption-weight);
+figcaption,
+  table caption {
+  font-size: var(--caption-size);
+  line-height: var(--caption-line-height);
+  letter-spacing: var(--caption-letter-spacing);
+  font-weight: var(--caption-weight);
+}
+
+abbr[title] {
+  text-transform: uppercase;
+  font-size: var(--overline-size);
+  line-height: var(--overline-line-height);
+  letter-spacing: var(--overline-letter-spacing);
+  font-weight: var(--overline-weight);
+abbr[title] {
+  text-transform: uppercase;
+  font-size: var(--overline-size);
+  line-height: var(--overline-line-height);
+  letter-spacing: var(--overline-letter-spacing);
+  font-weight: var(--overline-weight);
 }
 
 p,
@@ -1372,10 +1626,6 @@ ul {
   max-width: 65ch;
 }
 
-.flex-\[0_0_130px\] {
-  flex: 0 0 130px;
-}
-
 .flex-auto {
   flex: 1 1 auto;
 }
@@ -1690,14 +1940,10 @@ ul {
   text-align: center;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+.text-\[0\.65rem\] {
+  font-size: 0.65rem;
+.text-\[0\.65rem\] {
+  font-size: 0.65rem;
 }
 
 .text-lg {
@@ -1710,9 +1956,37 @@ ul {
   line-height: 1.25rem;
 }
 
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-\[0\.65rem\] {
+  font-size: 0.65rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-\[0\.65rem\] {
+  font-size: 0.65rem;
 }
 
 .font-black {
@@ -1738,22 +2012,6 @@ ul {
 
 .leading-tight {
   line-height: 1.25;
-}
-
-.tracking-tight {
-  letter-spacing: -0.025em;
-}
-
-.tracking-wide {
-  letter-spacing: 0.025em;
-}
-
-.tracking-wider {
-  letter-spacing: 0.05em;
-}
-
-.tracking-widest {
-  letter-spacing: 0.1em;
 }
 
 .text-fuchsia-600 {
@@ -2335,6 +2593,14 @@ ul {
 }
 
 @media (min-width: 640px) {
+  .sm\:flex {
+    display: flex;
+  }
+
+  .sm\:flex {
+    display: flex;
+  }
+
   .sm\:w-64 {
     width: 16rem;
   }
@@ -2380,16 +2646,6 @@ ul {
   .sm\:pt-16 {
     padding-top: 4rem;
   }
-
-  .sm\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
-  .sm\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
-  }
 }
 
 @media (min-width: 768px) {
@@ -2434,5 +2690,19 @@ ul {
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 }

@@ -1,0 +1,74 @@
+:root {
+  --font-family-display: "Bebas Neue", sans-serif;
+
+  /* Font Family */
+  --font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
+  /* Type Scale */
+  --display-lg-size: 50.52px;
+  --display-lg-line-height: 1.5;
+  --display-lg-letter-spacing: 0.015em;
+
+  --display-md-size: 43.75px;
+  --display-md-line-height: 1.55;
+  --display-md-letter-spacing: 0.03em;
+
+  --h1-size: 37.9px;
+  --h1-line-height: 1.55;
+  --h1-letter-spacing: 0.03em;
+
+  --h2-size: 28.43px;
+  --h2-line-height: 1.55;
+  --h2-letter-spacing: 0.03em;
+
+  --h3-size: 24.62px;
+  --h3-line-height: 1.55;
+  --h3-letter-spacing: 0.03em;
+
+  --h4-size: 21.33px;
+  --h4-line-height: 1.6;
+  --h4-letter-spacing: 0.038em;
+
+  --h5-size: 19.85px;
+  --h5-line-height: 1.6;
+  --h5-letter-spacing: 0.045em;
+
+  --h6-size: 18.47px;
+  --h6-line-height: 1.6;
+  --h6-letter-spacing: normal;
+
+  --body-xl-size: 17.19px;
+  --body-xl-weight: 400;
+  --body-xl-line-height: 1.6;
+  --body-xl-letter-spacing: normal;
+
+  --body-size: 16px;
+  --body-weight: 400;
+  --body-line-height: 1.6;
+  --body-letter-spacing: normal;
+
+  --body-sm-size: 14.89px;
+  --body-sm-weight: 400;
+  --body-sm-line-height: 1.65;
+  --body-sm-letter-spacing: normal;
+
+  --caption-lg-size: 13.86px;
+  --caption-lg-weight: 400;
+  --caption-lg-line-height: 1.65;
+  --caption-lg-letter-spacing: normal;
+
+  --caption-size: 12.9px;
+  --caption-weight: 400;
+  --caption-line-height: 1.65;
+  --caption-letter-spacing: normal;
+
+  --caption-sm-size: 12px;
+  --caption-sm-weight: 300;
+  --caption-sm-line-height: 1.65;
+  --caption-sm-letter-spacing: normal;
+
+  --overline-size: 11.17px;
+  --overline-weight: 500;
+  --overline-line-height: 1.65;
+  --overline-letter-spacing: normal;
+}
