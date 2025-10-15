@@ -1,0 +1,38 @@
+{% macro annotatedImage(src, alt, params = {}) %}
+{# options:
+   params.ratio      -> string aspect ratio like "16 / 9" (optional)
+   params.className  -> extra classes on <figure> (optional)
+   params.figcaption -> overall figcaption HTML/text (optional)
+   params.callouts   -> array of { x, y, text|html, side, label }
+      - x, y: numbers 0–100 (percent from left/top of image)
+      - side: "left" to place caption/line to the left (default right)
+      - text: plain text for caption
+      - html: (optional) HTML for caption; if set, used instead of text
+      - label: (optional) screen-reader label for the pin
+#}
+
+{% set ratio = params.ratio or false %}
+{% set className = params.className or "" %}
+{% set figcaption = params.figcaption or "" %}
+
+<figure class="annotated {{ className }}"{% if ratio %} style="aspect-ratio: {{ ratio }}"{% endif %}>
+  <img src="{{ src }}" alt="{{ alt }}" loading="lazy" decoding="async">
+
+  {% for c in params.callouts or [] %}
+    {%- set sideClass = " pointer--left" if c.side == "left" else "" -%}
+    <details class="pointer{{ sideClass }}" style="--x:{{ c.x }}%; --y:{{ c.y }}%">
+      <summary class="pointer__circle">
+        <span class="sr-only">{{ c.label or c.text }}</span>
+      </summary>
+      <span class="pointer__line" aria-hidden="true"></span>
+      <p class="pointer__caption">
+        {%- if c.html -%}{{ c.html | safe }}{%- else -%}{{ c.text }}{%- endif -%}
+      </p>
+    </details>
+  {% endfor %}
+
+  {% if figcaption %}
+    <figcaption class="annotated__figcaption">{{ figcaption | safe }}</figcaption>
+  {% endif %}
+</figure>
+{% endmacro %}

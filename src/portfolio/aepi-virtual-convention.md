@@ -63,6 +63,21 @@ Uncluttered, uncomplicated, and easily understood by every member.
 
 ![AEPi 107 logo](</img/portfolio pics_Convention logos.webp>)
 
+<div>
+{{ annotatedImage(
+  "/img/portfolio pics_Convention logos.webp",
+  "Example image with callouts",
+  {
+    ratio: "16 / 9",
+    className: "demo-annotated",
+    callouts: [
+      { x: 72, y: 24, text: "Callout A" },
+      { x: 42, y: 64, side: "left", text: "Callout B" }
+    ]
+  }
+) }}
+</div>
+
 You only have 15 seconds. **K.I.S.S.**
 
 The framework of this virtual program can serve the organization when planning virtual events in the future, or supplement in-person events.

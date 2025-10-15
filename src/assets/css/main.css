@@ -1,4 +1,5 @@
 @import "typescale.css";
+@import "annotatedImage.css";
 
 @tailwind base;
 @tailwind components;

@@ -1,0 +1,90 @@
+/* ---- Base layout ---- */
+.annotated { position: relative; width: 100%; /* optionally control with aspect-ratio via macro */ }
+.annotated > img { display: block; width: 100%; height: auto; }
+.annotated { --caption-w: 220px; --pin-size: 24px; --cap-pad: 8px; }
+
+/* ---- Elements ---- */
+.pointer__circle, .pointer__caption, .pointer__line { position: absolute; }
+
+/* Pin (summary acts as the button) */
+.pointer__circle {
+  top: var(--y); left: var(--x);
+  width: var(--pin-size); height: var(--pin-size);
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.2);
+  background: rgba(59,91,103,.10);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+/* Leader line (desktop only) */
+.pointer__line { display: none; }
+@media (min-width: 1200px) {
+  .pointer__line {
+    top: calc(var(--y) + (var(--pin-size) / 2));
+    left: calc(var(--x) + var(--pin-size));
+    width: calc(100% - var(--x) - (var(--pin-size) / 2));
+    height: 1px;
+    background: rgba(59,91,103,.12);
+    transform: translateY(-50%);
+    display: block;
+    pointer-events: none;
+  }
+  .pointer.pointer--left .pointer__line {
+    left: -18px;
+    width: calc(var(--x) + 18px);
+  }
+}
+
+/* Caption */
+@media (min-width: 1200px) {
+  .pointer__caption {
+    top: var(--y);
+    left: calc(100% + 18px);
+    width: var(--caption-w);
+    padding-left: 8px;
+    border-left: 1px solid rgba(59,91,103,.12);
+    color: rgba(59,91,103,.85);
+    font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+    transform: translateY(-50%);
+  }
+  .pointer.pointer--left .pointer__caption {
+    left: auto; right: calc(100% + 18px);
+    text-align: right;
+    padding-left: 0; padding-right: 8px;
+    border-left: 0; border-right: 1px solid rgba(59,91,103,.12);
+  }
+}
+
+/* Mobile: make the caption a tooltip; no leader lines */
+@media (max-width: 1199px) {
+  .pointer__caption {
+    bottom: calc(100% - var(--y));
+    left: var(--x);
+    width: 200px;
+    padding: var(--cap-pad);
+    border-radius: 6px;
+    background: #3b5b67;
+    color: #fff;
+    font: 12px/1.4 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,.25);
+    transform: translate(-50%, 8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s ease, transform .15s ease;
+  }
+  /* open state without JS */
+  .pointer[open] .pointer__caption {
+    opacity: 1; pointer-events: auto; transform: translate(-50%, 0);
+  }
+}
+
+/* Details/summary tweaks */
+.pointer summary { list-style: none; }
+.pointer summary::-webkit-details-marker { display: none; }
+
+/* Utility for screen reader–only text */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
