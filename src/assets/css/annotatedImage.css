@@ -4,10 +4,10 @@
 .annotated { --caption-w: 220px; --pin-size: 24px; --cap-pad: 8px; }
 
 /* ---- Elements ---- */
-.pointer__circle, .pointer__caption, .pointer__line { position: absolute; }
+.annotated__marker, .annotated__caption, .annotated__leader { position: absolute; }
 
-/* Pin (summary acts as the button) */
-.pointer__circle {
+/* Marker (summary acts as the button) */
+.annotated__marker {
   top: var(--y); left: var(--x);
   width: var(--pin-size); height: var(--pin-size);
   border-radius: 50%;
@@ -16,11 +16,12 @@
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
+.annotated__marker > span { display: block; width: 100%; height: 100%; }
 
 /* Leader line (desktop only) */
-.pointer__line { display: none; }
+.annotated__leader { display: none; }
 @media (min-width: 1200px) {
-  .pointer__line {
+  .annotated__leader {
     top: calc(var(--y) + (var(--pin-size) / 2));
     left: calc(var(--x) + var(--pin-size));
     width: calc(100% - var(--x) - (var(--pin-size) / 2));
@@ -30,7 +31,7 @@
     display: block;
     pointer-events: none;
   }
-  .pointer.pointer--left .pointer__line {
+  .annotated__callout.annotated__callout--left .annotated__leader {
     left: -18px;
     width: calc(var(--x) + 18px);
   }
@@ -38,7 +39,7 @@
 
 /* Caption */
 @media (min-width: 1200px) {
-  .pointer__caption {
+  .annotated__caption {
     top: var(--y);
     left: calc(100% + 18px);
     width: var(--caption-w);
@@ -48,7 +49,7 @@
     font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
     transform: translateY(-50%);
   }
-  .pointer.pointer--left .pointer__caption {
+  .annotated__callout.annotated__callout--left .annotated__caption {
     left: auto; right: calc(100% + 18px);
     text-align: right;
     padding-left: 0; padding-right: 8px;
@@ -58,7 +59,7 @@
 
 /* Mobile: make the caption a tooltip; no leader lines */
 @media (max-width: 1199px) {
-  .pointer__caption {
+  .annotated__caption {
     bottom: calc(100% - var(--y));
     left: var(--x);
     width: 200px;
@@ -74,17 +75,11 @@
     transition: opacity .15s ease, transform .15s ease;
   }
   /* open state without JS */
-  .pointer[open] .pointer__caption {
+  .annotated__callout[open] .annotated__caption {
     opacity: 1; pointer-events: auto; transform: translate(-50%, 0);
   }
 }
 
 /* Details/summary tweaks */
-.pointer summary { list-style: none; }
-.pointer summary::-webkit-details-marker { display: none; }
-
-/* Utility for screen reader–only text */
-.sr-only {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-}
+.annotated__callout summary { list-style: none; }
+.annotated__callout summary::-webkit-details-marker { display: none; }

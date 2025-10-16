@@ -8,24 +8,28 @@
       - side: "left" to place caption/line to the left (default right)
       - text: plain text for caption
       - html: (optional) HTML for caption; if set, used instead of text
-      - label: (optional) screen-reader label for the pin
+      - label: (optional) screen-reader label for the marker
 #}
 
-{% set ratio = params.ratio or false %}
-{% set className = params.className or "" %}
+{% set ratio = params.ratio %}
 {% set figcaption = params.figcaption or "" %}
+{% set callouts = params.callouts or [] %}
 
-<figure class="annotated {{ className }}"{% if ratio %} style="aspect-ratio: {{ ratio }}"{% endif %}>
+{% set figureClass = "annotated" %}
+{% if params.className %}
+  {% set figureClass = figureClass + " " + params.className %}
+{% endif %}
+
+<figure class="{{ figureClass }}"{% if ratio %} style="aspect-ratio: {{ ratio }}"{% endif %}>
   <img src="{{ src }}" alt="{{ alt }}" loading="lazy" decoding="async">
 
-  {% for c in params.callouts or [] %}
-    {%- set sideClass = " pointer--left" if c.side == "left" else "" -%}
-    <details class="pointer{{ sideClass }}" style="--x:{{ c.x }}%; --y:{{ c.y }}%" open>
-      <summary class="pointer__circle">
-        <span class="sr-only">{{ c.label or c.text }}</span>
-      </summary>
-      <span class="pointer__line" aria-hidden="true"></span>
-      <p class="pointer__caption">
+  {% for c in callouts %}
+    {%- set isLeft = c.side == "left" -%}
+    {%- set markerLabel = (c.label or c.text or "Image detail") | striptags -%}
+    <details class="annotated__callout{% if isLeft %} annotated__callout--left{% endif %}" style="--x:{{ c.x }}%; --y:{{ c.y }}%" open>
+      <summary class="annotated__marker" aria-label="{{ markerLabel }}"></summary>
+      <span class="annotated__leader" aria-hidden="true"></span>
+      <p class="annotated__caption">
         {%- if c.html -%}{{ c.html | safe }}{%- else -%}{{ c.text }}{%- endif -%}
       </p>
     </details>
