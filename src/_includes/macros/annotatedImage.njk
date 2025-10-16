@@ -26,10 +26,8 @@
   {% for c in callouts %}
     {%- set isLeft = c.side == "left" -%}
     {%- set markerLabel = (c.label or c.text or "Image detail") | striptags -%}
-    <details class="annotated__callout{% if isLeft %} annotated__callout--left{% endif %}" style="--x:{{ c.x }}%; --y:{{ c.y }}%">
-      <summary class="annotated__marker" aria-label="{{ markerLabel }}">
-        <span aria-hidden="true"></span>
-      </summary>
+    <details class="annotated__callout{% if isLeft %} annotated__callout--left{% endif %}" style="--x:{{ c.x }}%; --y:{{ c.y }}%" open>
+      <summary class="annotated__marker" aria-label="{{ markerLabel }}"></summary>
       <span class="annotated__leader" aria-hidden="true"></span>
       <p class="annotated__caption">
         {%- if c.html -%}{{ c.html | safe }}{%- else -%}{{ c.text }}{%- endif -%}
