@@ -64,6 +64,7 @@ Uncluttered, uncomplicated, and easily understood by every member.
 ![AEPi 107 logo](</img/portfolio pics_Convention logos.webp>)
 
 <div>
+{% from "macros/annotatedImage.njk" import annotatedImage %}
 {{ annotatedImage(
   "/img/portfolio pics_Convention logos.webp",
   "Example image with callouts",
