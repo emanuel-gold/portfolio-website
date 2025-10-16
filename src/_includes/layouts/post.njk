@@ -3,7 +3,7 @@ layout: layouts/base.njk
 pageType: post
 ---
 {% import "components/icons.njk" as icons %}
-{% from "macros/annotatedImage.njk" import annotatedImage %}
+
 {% include "components/header.njk" %}
 <main class="py-10 sm:pt-10">
   <div class="mx-auto w-full max-w-post px-4 sm:px-6 lg:px-8">
@@ -14,7 +14,7 @@ pageType: post
       {{ icons.arrow_left('w-4 h-4') }}
       Back to portfolio
     </a>
-    <article class="prose dark:prose-invert md:prose-md lg:prose-lg  mx-auto overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+    <article class="prose dark:prose-invert md:prose-md lg:prose-lg  mx-auto rounded-3xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-800 dark:bg-gray-900">
       <header class="mb-8">
         <div class="pb-4 flex flex-col items-start sm:justify-between border-b dark:border-gray-800">
           <h1 style="margin-bottom:16px;">{{ title }}</h1>

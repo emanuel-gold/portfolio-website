@@ -58,5 +58,6 @@ export default function (config) {
       output: "_site",
     },
     templateFormats: ["njk", "md", "html"],
+    markdownTemplateEngine: "njk",
   };
 }

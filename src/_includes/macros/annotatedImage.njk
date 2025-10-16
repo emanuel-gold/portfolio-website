@@ -20,7 +20,7 @@
 
   {% for c in params.callouts or [] %}
     {%- set sideClass = " pointer--left" if c.side == "left" else "" -%}
-    <details class="pointer{{ sideClass }}" style="--x:{{ c.x }}%; --y:{{ c.y }}%">
+    <details class="pointer{{ sideClass }}" style="--x:{{ c.x }}%; --y:{{ c.y }}%" open>
       <summary class="pointer__circle">
         <span class="sr-only">{{ c.label or c.text }}</span>
       </summary>
