@@ -4,6 +4,7 @@
 .annotated { --caption-w: 220px; --pin-size: 24px; --cap-pad: 8px; }
 
 /* ---- Elements ---- */
+.annotated__callout--desktop { display: none; }
 .annotated__marker, .annotated__caption, .annotated__leader { position: absolute; }
 
 /* Marker (summary acts as the button) */
@@ -21,6 +22,8 @@
 /* Leader line (desktop only) */
 .annotated__leader { display: none; }
 @media (min-width: 1200px) {
+  .annotated__callout--desktop { display: block; }
+  .annotated__callout--mobile { display: none; }
   .annotated__leader {
     top: calc(var(--y) + (var(--pin-size) / 2));
     left: calc(var(--x) + var(--pin-size));
@@ -59,6 +62,7 @@
 
 /* Mobile: make the caption a tooltip; no leader lines */
 @media (max-width: 1199px) {
+  .annotated__callout--desktop { display: none; }
   .annotated__caption {
     bottom: calc(100% - var(--y));
     left: var(--x);

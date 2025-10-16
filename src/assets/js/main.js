@@ -172,3 +172,4 @@ if (yearTargets.length) {
     node.textContent = String(year);
   });
 }
+
