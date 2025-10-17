@@ -1,3 +1,6 @@
+# Directories labeled _ignore and located anywhere
+_ignore/
+
 # Logs
 logs
 *.log
@@ -24,4 +27,4 @@ dist-ssr
 *.sw?
 
 # Eleventy output
-_site
+/_site/
