@@ -27,32 +27,6 @@ The marketing team faced several difficulties in managing their digital assets, 
 
 ## Overview
 
-{% imageHotspots
-  "/img/hubspot logo transparent.png",
-  "Detailed photo with hotspots",
-  [
-    {
-      x: 28,
-      y: 62,
-      label: "Callout",
-      placement: "right",
-      content: '<p>Explain the detail here.</p>'
-    },
-    {
-      x: 70,
-      y: 18,
-      content: '<p>Another point of interest.</p>',
-      offsetX: "0.75rem"
-    }
-  ],
-  {
-    caption: "Figure 1. Highlights across the hero image.",
-    width: 1200,
-    height: 800,
-    wrapperClass: "mt-8"
-  }
-%}
-
 A B2B professional services company’s in-house marketing team created and distributed digital marketing materials including high-resolution graphics, photos, videos, brochures, and presentations. The team struggled with several challenges in managing and distributing its digital assets. To name a few, there was no way to control duplicates, no document versions, no access controls, and limited searchability.
 
 For example, if the sales team saved an outdated graphic on their computer’s hard drive, we could not update that for them or prevent them from distributing it to prospects.
