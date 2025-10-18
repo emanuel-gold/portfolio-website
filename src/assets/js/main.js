@@ -172,3 +172,62 @@ if (yearTargets.length) {
     node.textContent = String(year);
   });
 }
+
+const hotspotContainers = Array.from(document.querySelectorAll('[data-hotspot]'));
+
+function setHotspotState(container, open) {
+  const trigger = container.querySelector('[data-hotspot-toggle]');
+  const popover = container.querySelector('[data-hotspot-popover]');
+  if (!trigger || !popover) return;
+  container.classList.toggle('is-active', open);
+  trigger.setAttribute('aria-expanded', String(open));
+  if (open) {
+    popover.hidden = false;
+    popover.removeAttribute('aria-hidden');
+  } else {
+    popover.hidden = true;
+    popover.setAttribute('aria-hidden', 'true');
+  }
+}
+
+function closeAllHotspots(except = null) {
+  hotspotContainers.forEach((container) => {
+    if (container === except) return;
+    setHotspotState(container, false);
+  });
+}
+
+if (hotspotContainers.length) {
+  hotspotContainers.forEach((container) => {
+    const trigger = container.querySelector('[data-hotspot-toggle]');
+    if (!trigger) return;
+
+    setHotspotState(container, false);
+
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      const isActive = container.classList.contains('is-active');
+      if (isActive) {
+        setHotspotState(container, false);
+      } else {
+        closeAllHotspots(container);
+        setHotspotState(container, true);
+      }
+    });
+  });
+
+  document.addEventListener('pointerdown', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    if (hotspotContainers.some((container) => container.contains(target))) {
+      return;
+    }
+    closeAllHotspots();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeAllHotspots();
+    }
+  });
+}
