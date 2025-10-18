@@ -4,12 +4,11 @@ This repository contains the Eleventy-powered portfolio site.
 
 ## Local development
 
-```bash
-npm install
-npm run dev
-```
+- `npm install`
+- `npm run dev` — runs Eleventy with Tailwind in watch mode.
+- `npm run site-editor` — starts a local-only UI at <http://localhost:3333> for editing `src/_data/site.js`. The editor reads and writes the source file directly so Eleventy picks up changes on rebuild.
 
-The development command runs Eleventy and the Tailwind CSS watcher in parallel.
+The dev command runs Eleventy and the Tailwind CSS watcher in parallel.
 
 ## Using the image hotspot module
 
@@ -58,3 +57,9 @@ The hotspot macro allows you to add interactive hotspots with popovers to any im
    - `loading`: Override the default `lazy` loading mode.
 
 Hotspots share global client-side behavior that is automatically included through `assets/main.js`, so no extra scripts are necessary.
+
+## Featured projects
+
+- Add `featured: true` to a project's front matter to surface it on the home page by default.
+- Featured items are sorted by their numeric `order` value (ascending); items without an explicit order fall back to their publish date (newest first).
+- Only the top three featured projects render when the page initially loads. The remaining items stay hidden until you pick a matching tag or run a search, and the original trio returns when you reset the filter to **All**.
