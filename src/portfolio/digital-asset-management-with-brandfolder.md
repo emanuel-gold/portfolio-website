@@ -13,7 +13,6 @@ links:
 thumbnail: "/img/Brandfolder-case-study.webp"
 header_image: "/img/Brandfolder-case-study.webp"
 ---
-
 ## A Confusion-Free Solution
 
 We all know the struggle: someone sends **Final\_Copy\_v2\_Edited(final(FOR-REAL))\_3.pdf** out to a client or internal stakeholder. A few minutes later, you get the dreaded reply-all email saying “Sorry, that wasn’t the final copy… the actual final version is attached, please forward and sorry for the confusion.”
@@ -27,6 +26,32 @@ The marketing team faced several difficulties in managing their digital assets, 
 3.  Lack of access control for digital assets, putting sensitive information at risk.
 
 ## Overview
+
+{% imageHotspots
+  "/img/hubspot logo transparent.png",
+  "Detailed photo with hotspots",
+  [
+    {
+      x: 28,
+      y: 62,
+      label: "Callout",
+      placement: "right",
+      content: '<p>Explain the detail here.</p>'
+    },
+    {
+      x: 70,
+      y: 18,
+      content: '<p>Another point of interest.</p>',
+      offsetX: "0.75rem"
+    }
+  ],
+  {
+    caption: "Figure 1. Highlights across the hero image.",
+    width: 1200,
+    height: 800,
+    wrapperClass: "mt-8"
+  }
+%}
 
 A B2B professional services company’s in-house marketing team created and distributed digital marketing materials including high-resolution graphics, photos, videos, brochures, and presentations. The team struggled with several challenges in managing and distributing its digital assets. To name a few, there was no way to control duplicates, no document versions, no access controls, and limited searchability.
 

@@ -1,4 +1,5 @@
 @import "typescale.css";
+@import "imageHotspots.css";
 
 @tailwind base;
 @tailwind components;

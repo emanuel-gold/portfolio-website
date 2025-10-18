@@ -3,6 +3,22 @@ export default function (config) {
   config.addPassthroughCopy({ "src/assets/js": "assets" });
   config.addWatchTarget("./src/assets/css/main.css");
 
+  const imageHotspotsMacroCall = `{% from "macros/imageHotspots.njk" import imageHotspots %}{{ imageHotspots(src, alt, hotspots, options) }}`;
+
+  config.addNunjucksShortcode(
+    "imageHotspots",
+    function (src, alt, hotspots = [], options = {}) {
+      const context = Object.assign({}, this.ctx ?? {}, {
+        src,
+        alt,
+        hotspots,
+        options,
+      });
+
+      return this.env.renderString(imageHotspotsMacroCall, context);
+    }
+  );
+
   const sortByOrderThenDate = (collection = []) => {
     return [...collection].sort((a, b) => {
       const orderA = Number.isFinite(a.data?.order) ? a.data.order : null;
@@ -58,5 +74,6 @@ export default function (config) {
       output: "_site",
     },
     templateFormats: ["njk", "md", "html"],
+    markdownTemplateEngine: "njk",
   };
 }
