@@ -10,10 +10,10 @@ layout: layouts/base.njk
   <section id="projects" class="scroll-mt-24">
     <div class="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10">
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Portfolio</h2>
+        <h2>Portfolio</h2>
       </div>
 
-      <div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+      <div class="mb-8 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
         <div class="flex flex-wrap items-center gap-2" data-tag-list>
           <button
             class="rounded-full border border-transparent bg-gray-900 px-3 py-1 text-sm text-white transition dark:bg-white dark:text-gray-900"
@@ -39,22 +39,22 @@ layout: layouts/base.njk
           data-search-input
         />
       </div>
-      <div class="grid grid-cols-1 gap-6" data-project-grid data-show-featured-only="false">
+      <div class="grid grid-cols-1 gap-10" data-project-grid data-show-featured-only="false">
         {% for project in featuredProjects %}
           <article
-            class="featured group flex flex-row rounded-2xl border overflow-hidden shadow-sm transition dark:border-gray-800"
+            class="featured group flex flex-row rounded-2xl border overflow-hidden shadow-md transition dark:border-brand-dark-shadow/45 hover:shadow-lg"
             data-project
             data-tags="{{ project.data.tags | default([]) | join(',') }}"
             data-featured="true"
           >
             {% if project.data.thumbnail %}
-              <div class="flex flex-[0_0_130px] sm:flex-[0_0_167.7px]">
+              <div class="hidden sm:flex sm:flex-[0_0_167.7px]">
                 <img class="object-cover" src="{{ project.data.thumbnail }}">
               </div>
             {% endif %}
             <div class="flex flex-col flex-auto p-5 bg-white dark:bg-gray-950">
               <div class="mb-3 flex items-center justify-between">
-                <h3 class="text-lg font-semibold leading-tight">
+                <h3 class="leading-tight">
                   <a href="{{ project.url }}" class="hover:text-fuchsia-500 hover:underline">{{ project.data.title }}</a>
                 </h3>
                 <span class="text-xs opacity-60">{{ project.data.period }}</span>
@@ -87,19 +87,19 @@ layout: layouts/base.njk
         {% for project in projects %}
           {% if project not in featuredProjects %}
             <article
-              class="group flex flex-row rounded-2xl border overflow-hidden shadow-sm transition dark:border-gray-800"
+              class="group flex flex-row rounded-2xl border overflow-hidden shadow-md transition dark:border-brand-dark-shadow/45 hover:shadow-lg"
               data-project
               data-tags="{{ project.data.tags | default([]) | join(',') }}"
               data-featured="false"
             >
               {% if project.data.thumbnail %}
-                <div class="flex flex-[0_0_130px] sm:flex-[0_0_167.7px]">
+                <div class="hidden sm:flex sm:flex-[0_0_167.7px]">
                   <img class="object-cover" src="{{ project.data.thumbnail }}">
                 </div>
               {% endif %}
               <div class="flex flex-col flex-auto p-5 bg-white dark:bg-gray-950">
                 <div class="mb-3 flex items-center justify-between">
-                  <h3 class="text-lg font-semibold leading-tight">
+                  <h3 class="leading-tight">
                     <a href="{{ project.url }}" class="hover:text-fuchsia-500 hover:underline">{{ project.data.title }}</a>
                   </h3>
                   <span class="text-xs opacity-60">{{ project.data.period }}</span>

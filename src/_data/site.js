@@ -28,7 +28,7 @@ const site = {
   },
   "hero": {
     "availability": "Available for projects",
-    "heading": "<span class=\"test brand-gradient-right bg-clip-text text-transparent\">Emanuel Gold:</span> creator of fast websites and efficient projects.",
+    "heading": "<span class=\"test brand-gradient-right bg-clip-text text-transparent\">Emanuel Gold:</span> creator of fast websites & efficient projects.",
     "summary": "Using PMP-certified project management skills, I design, ship, and grow marketing sites and CRM automations. My focus: clear value, cleaner code, and measurable outcomes.",
     "primaryCta": {
       "href": "mailto:hello@emanuelgold.com",

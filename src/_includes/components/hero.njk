@@ -1,12 +1,12 @@
 {% import "components/icons.njk" as icons %}
-<section id="top" class="border-b bg-slate-100 bg-gradient-to-b from-lightGradientStart to-white dark:border-gray-800 dark:from-gray-950 dark:to-darkGradientEnd">
+<section id="top" class="bg-slate-100 bg-gradient-to-b from-light-gradient-start to-white dark:from-gray-950 dark:to-dark-gradient-end">
   <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 items-center gap-8 py-14 sm:py-16 md:grid-cols-2">
       <div>
-        <p class="mb-3 inline-flex items-center gap-2 text-xs uppercase tracking-widest opacity-70">
+        <p class="mb-3 inline-flex items-center gap-2 text-xs uppercase opacity-70">
           <span class="h-2 w-2 rounded-full bg-emerald-500"></span> {{ site.hero.availability }}
         </p>
-        <h1 class="mb-4 text-4xl font-black leading-tight sm:text-5xl">{{ site.hero.heading | safe }}</h1>
+        <h1 class="mb-4 font-black leading-tight">{{ site.hero.heading | safe }}</h1>
         <p class="mb-8 max-w-prose text-lg opacity-90">{{ site.hero.summary }}</p>
         <div class="flex flex-wrap gap-3">
           <a
@@ -36,7 +36,7 @@
         <div class="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-tr from-fuchsia-500/10 via-cyan-400/10 to-emerald-400/10 blur-2xl"></div>
         <div class="grid grid-cols-2 gap-4 sm:gap-6" data-hero-chips>
           {% for chip in site.hero.highlightChips %}
-            <div class="flex flex-col justify-center rounded-2xl border p-4 text-center text-sm font-medium shadow-sm dark:border-gray-800"><span>{{ chip }}</span></div>
+            <div class="flex flex-col justify-center rounded-2xl border p-4 text-center text-sm font-medium shadow-sm dark:border-brand-dark-shadow/45"><span>{{ chip }}</span></div>
           {% endfor %}
         </div>
       </div>

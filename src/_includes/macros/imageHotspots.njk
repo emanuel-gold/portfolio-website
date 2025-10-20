@@ -1,0 +1,80 @@
+{% macro imageHotspots(src, alt, hotspots=[], options={}) -%}
+{%- import "components/icons.njk" as icons -%}
+{%- set figureClass = options.figureClass or '' -%}
+{%- set imageClass = options.imageClass or '' -%}
+{%- set wrapperClass = options.wrapperClass or '' -%}
+{%- set loading = options.loading or 'lazy' -%}
+{%- set width = options.width -%}
+{%- set height = options.height -%}
+{%- set sanitizedSrc = src
+  | replace('/', '-')
+  | replace('.', '-')
+  | replace(' ', '-')
+  | replace('#', '-')
+  | replace('?', '-')
+  | replace('&', '-')
+-%}
+<figure class="hotspot-image {{ wrapperClass }}">
+  <div class="hotspot-image__media {{ figureClass }}">
+    <img
+      src="{{ src }}"
+      alt="{{ alt }}"
+      class="hotspot-image__img {{ imageClass }}"
+      loading="{{ loading }}"
+      {% if width %}width="{{ width }}"{% endif %}
+      {% if height %}height="{{ height }}"{% endif %}
+    />
+  </div>
+  {%- if hotspots and hotspots | length -%}
+    <div class="hotspot-image__hotspots">
+      {%- for hotspot in hotspots -%}
+        {%- set placement = hotspot.placement or 'top' -%}
+        {%- set idBase = (options.idPrefix or ('hotspot-' ~ sanitizedSrc | lower)) ~ '-' ~ loop.index -%}
+        {%- set buttonId = idBase ~ '-button' -%}
+        {%- set popoverId = idBase ~ '-popover' -%}
+        <div
+          class="hotspot-image__hotspot"
+          data-hotspot
+          data-placement="{{ placement }}"
+          style="--hotspot-x: {{ hotspot.x }}%; --hotspot-y: {{ hotspot.y }}%;{% if hotspot.offsetX %} --popover-offset-x: {{ hotspot.offsetX }};{% endif %}{% if hotspot.offsetY %} --popover-offset-y: {{ hotspot.offsetY }};{% endif %}"
+        >
+          <button
+            id="{{ buttonId }}"
+            type="button"
+            class="hotspot-image__trigger"
+            data-hotspot-toggle
+            aria-expanded="false"
+            aria-controls="{{ popoverId }}"
+          >{%- if hotspot.icon -%}
+            <span class="hotspot-image__trigger-icon">{{ hotspot.icon | safe }}</span>
+          {%- else -%}
+            {{ icons.plus('w-4 h-4') }}
+          {%- endif -%}
+          {%- if hotspot.label -%}
+            <span class="hotspot-image__trigger-label">{{ hotspot.label }}</span>
+          {%- else -%}
+            <span class="sr-only">Show hotspot details</span>
+          {%- endif -%}</button>
+          <div
+            id="{{ popoverId }}"
+            class="hotspot-image__popover"
+            role="dialog"
+            aria-labelledby="{{ buttonId }}"
+            data-hotspot-popover
+            hidden
+          >
+            <div class="hotspot-image__popover-content">
+              {{ hotspot.content | safe }}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+  {%- if options.caption -%}
+    <figcaption class="hotspot-image__caption">
+      {{ options.caption | safe }}
+    </figcaption>
+  {%- endif -%}
+</figure>
+{%- endmacro %}

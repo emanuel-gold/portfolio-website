@@ -2,7 +2,7 @@
 featured: true
 layout: layouts/post.njk
 title: "Implementing a Digital Asset Management Platform"
-period: "2023–2024"
+period: "2021–2022"
 order: 9
 blurb: "We all know the struggle: someone emails <strong>Final_Copy_v2_Edited(final-FOR-REAL)_3.pdf</strong> to your client. A few minutes later, you get the dreaded reply-all email saying “Sorry, NEW updated final version is attached!” It had to stop."
 tags:
@@ -13,7 +13,6 @@ links:
 thumbnail: "/img/Brandfolder-case-study.webp"
 header_image: "/img/Brandfolder-case-study.webp"
 ---
-
 ## A Confusion-Free Solution
 
 We all know the struggle: someone sends **Final\_Copy\_v2\_Edited(final(FOR-REAL))\_3.pdf** out to a client or internal stakeholder. A few minutes later, you get the dreaded reply-all email saying “Sorry, that wasn’t the final copy… the actual final version is attached, please forward and sorry for the confusion.”
