@@ -1,5 +1,5 @@
-{% set pageTitle = title or site.meta.title %}
-{% set pageDescription = description or site.meta.description %}
+{%- set pageTitle = title or site.meta.title -%}
+{%- set pageDescription = description or site.meta.description -%}
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
@@ -38,5 +38,6 @@
       } | dump | safe }}
     </script>
     <script src="/assets/main.js" type="module"></script>
+    <script src="/assets/imageHotspots.js" type="module"></script>
   </body>
 </html>
