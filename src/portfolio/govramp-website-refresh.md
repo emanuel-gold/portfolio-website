@@ -59,10 +59,10 @@ By unifying the site’s visuals in a WYSIWYG editor and building out global sit
 
 The best part: once the site’s theme was built, adding new content and applying new styles to existing pages took a few hours. Normally, this would have taken their team several days.
 
-<!--Click on the images below to see more of the finished product and comparisons.-->
-
 ![](/img/Register.png)
+
 ![](/img/Home-CTAS.png)
+
 ![](/img/Menus-1.png)
 
 ### Out with the old…
