@@ -57,7 +57,7 @@ By unifying the site’s visuals in a WYSIWYG editor and building out global sit
 
 ## Outcome
 
-The best part: once the site’s theme was built, adding new content and applying new styles to existing pages took a few hours. Normally, this would have taken their team several days.
+The best part: once the site’s theme was built, adding new content and applying new styles to existing pages took a few hours. Normally, this would have taken their team multiple days.
 
 <!--Click on the images below to see more of the finished product and comparisons.-->
 
