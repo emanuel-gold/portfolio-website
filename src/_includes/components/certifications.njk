@@ -3,9 +3,9 @@
     <div class="mb-10">
       <h2>Certifications</h2>
     </div>
-    <div id="cert-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {% for certification in site.certifications %}
-        <div id="cert-{{ loop.index }}" class="flex items-center gap-4 lg:gap-3 rounded-2xl border p-4 bg-white dark:bg-gray-950 dark:border-gray-800" data-aos="flip-right" data-aos-delay="{{ 100+loop.index0*200 }}" data-aos-anchor-placement="top-bottom">
+        <div class="flex items-center gap-4 lg:gap-3 rounded-2xl border p-4 bg-white dark:bg-gray-950 dark:border-gray-800">
 
           {% if certification.image and certification.link %}
             <a class="w-[75px] shrink-0"  href="{{ certification.link }}" target="_blank">
