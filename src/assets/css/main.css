@@ -1,5 +1,5 @@
-@import "fonts.css";
 @import "typescale.css";
+@import "imageHotspots.css";
 
 @tailwind base;
 @tailwind components;
@@ -38,29 +38,6 @@
   }
 
   h1, h2, h3, h4, h5, h6 { @apply font-display; }
-
-  #prose h1, #prose h2, #prose h3, #prose h4, #prose h5, #prose h6 { @apply mt-10 leading-none; }
-
-  #prose p {
-    @apply my-0;
-  }
-
-  #prose {
-    grid-template-areas: "left content right";
-  }
-
-  #prose > * {
-    grid-area: content;
-    grid-row: auto;
-  }
-
-  #prose > figure {
-    @apply col-start-1 col-end-4 my-5 mx-auto;
-  }
-
-  #prose > figure img  {
-    @apply border-2 rounded-xl;
-  }
 
   #siteLogo { 
     @apply font-display; 
@@ -110,9 +87,15 @@
     @apply decoration-brand-fuchsia;
   }
 
-  figcaption {
-    @apply italic mt-3;
+  /*
+  h1 {
+    @apply mb-4 text-4xl font-black leading-tight sm:text-5xl;
   }
+
+  h2 {
+    @apply text-3xl font-bold tracking-tight sm:text-4xl mb-4;
+  }
+  */
   
   /* Paragraph sizes using tokens */
   p {
@@ -205,6 +188,5 @@
     --tw-shadow-color: var(--shadow-color);
     --tw-shadow: var(--tw-shadow-colored);
   }
-}
 
-@import "imageHotspots.css";
+}

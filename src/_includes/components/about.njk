@@ -7,7 +7,7 @@
       <h2>{{ site.about.title }}</h2>
     </div>
     <div class="grid grid-cols-1 items-start gap-8 md:grid-cols-3">
-      <div class="md:col-span-2" data-aos="fade-right" data-aos-delay="300">
+      <div class="md:col-span-2">
         {% for paragraph in site.about.paragraphs %}
           <p class="mb-4 leading-relaxed opacity-90">{{ paragraph }}</p>
         {% endfor %}
@@ -17,7 +17,7 @@
           {% endfor %}
         </ul>
       </div>
-      <div class="rounded-2xl border p-5 bg-white dark:bg-gray-950 dark:border-gray-800" data-aos="flip-right" data-aos-delay="500">
+      <div class="rounded-2xl border p-5 bg-white dark:bg-gray-950 dark:border-gray-800">
         <h4 class="mb-3">Quick facts</h4>
         <dl class="grid grid-cols-1 gap-3 text-sm">
           {% for fact in site.about.facts %}
