@@ -1,5 +1,5 @@
-{%- set pageTitle = title or site.meta.title -%}
-{%- set pageDescription = description or site.meta.description -%}
+{% set pageTitle = title or site.meta.title %}
+{% set pageDescription = description or site.meta.description %}
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
@@ -7,17 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ pageTitle }}</title>
     <meta name="description" content="{{ pageDescription }}" />
-    <link rel="preload" href="/assets/fonts/bebas-neue.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/assets/main.css" />
+    <link rel="icon" href="/img/Personal-Logo-Favicon-Black-background-round-corner-300x300.png" sizes="192x192" type="image/png">
     <!--GOOGLE FONTS-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!--END GOOGLE FONTS-->
-    <!--AOS-->
-    <link rel="stylesheet" href="/assets/aos.css">
-    <script src="/assets/aos.js"></script>
-    <!--END AOS-->
-    <link rel="icon" href="/img/Personal-Logo-Favicon-Black-background-round-corner-300x300.png" sizes="192x192" type="image/png">
     <script>
       (function () {
         const stored = localStorage.getItem("theme");
@@ -30,7 +25,7 @@
     </script>
     {% if layout == "layouts/post.njk" %}<script src="/assets/post-scroll-progress-bar.js" defer></script>{% endif %}
   </head>
-  <body class="min-h-screen bg-slate-100 text-gray-900 antialiased dark:bg-slate-950 dark:text-gray-100" data-aos-easing="ease-out" data-aos-delay="0">
+  <body class="min-h-screen bg-slate-100 text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100">
     {{ content | safe }}
     <script type="application/ld+json">
       {{ {
@@ -43,7 +38,5 @@
       } | dump | safe }}
     </script>
     <script src="/assets/main.js" type="module"></script>
-    <script>AOS.init({ once: true, duration: 600 });</script>
-    {% if layout == "layouts/post.njk" %}<script src="/assets/imageHotspots.js" type="module"></script>{% endif %}
   </body>
 </html>

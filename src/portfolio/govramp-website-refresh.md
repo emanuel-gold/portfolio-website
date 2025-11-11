@@ -1,10 +1,10 @@
 ---
 featured: true
 layout: layouts/post.njk
-title: "GovRAMP"
+title: "GovRAMP Website Refresh"
 period: "2023–2024"
-order: 1
-blurb: "Nonprofit cybersecurity organization GovRAMP found its website outpaced by its own growth."
+order: 0
+blurb: "Nonprofit cybersecurity organization GovRAMP found its website outpaced by growing scale and client demands."
 tags:
   - WordPress
   - Web Development
@@ -12,13 +12,13 @@ tags:
   - UX/UI
   - Project Management
 links:
-thumbnail: "/img/GR Mockup - Dark BG.webp"
-header_image: "/img/GR Mockup.webp"
+thumbnail: "/img/SR-Website-Case-Study.png"
+header_image: "/img/SR-Website-Case-Study.png"
 ---
 
 ## The Problem
 
-GovRAMP’s previous website was out of date and failed to meet the scaling needs of a business serving members that range from startups to Fortune 100 companies. Clients expected a website was easy to navigate and full of valuable resources that would simplify their business needs. The internal GovRAMP team expected a website that was manageable by their marketing team yet technically-capable and conversion-optimized.
+GovRAMP’s previous website was out of date and failed to meet with the scaling needs of a fast-paced business catering to members that ranged from startups to Fortune 100 companies. Clients expected a website was easy to navigate and full of valuable resources that would simplify their business needs. The internal GovRAMP team expected a website that was manageable from an administrative perspective, and conversion-focused from a sales perspective.
 
 ## Overview
 
@@ -37,15 +37,15 @@ However, the original website was unclear, bulky, and complicated. This resulted
 - Brand Consistency: The previous site’s branding was inconsistent and visually lacking. Maintaining the professional, trustworthy image associated with cybersecurity compliance was crucial.
 - Ease of Use: Graphical elements on the old site were impossible to update globally due to the poor implementation of a CMS theme. It was imperative that a marketing team can edit the site with zero coding knowledge.
 
-{% raw %}
-## Goals & Strategy {#goals-and-strategy}
-{% endraw %}
+## Goals & Strategy
 
 To address these challenges, we started by meeting with internal and external stakeholders to pinpoint what did not work on the original site. By partnering with a third-party marketing firm, our team was able to summarize the needs of GovRAMP’s cloud service provider members as well as government agencies.
 
 The next steps were to wireframe the new site layout, and begin planning content for each new page. Since the primary focus was creating a user-friendly experience for both technical and non-technical audiences, we consulted with GovRAMP’s internal experts as well as third-parties to create the best experience possible.
 
-![A website's sitemap](/img/Sitemap.png "A clear, new sitemap for GovRAMP.org")
+![A website's sitemap](/img/Sitemap.png)
+
+A new, clear sitemap for GovRAMP.org
 
 ## Execution
 
@@ -57,9 +57,7 @@ By unifying the site’s visuals in a WYSIWYG editor and building out global sit
 
 ## Outcome
 
-The best part: once the site’s theme was built, adding new content and applying new styles to existing pages took a few hours. Normally, this would have taken their team multiple days.
-
-[//]: # (Click on the images below to see more of the finished product and comparisons.)
+The best part: once the site’s theme was built, adding new content and applying new styles to existing pages took a few hours. Normally, this would have taken their team several days.
 
 ![](/img/Register.png)
 
