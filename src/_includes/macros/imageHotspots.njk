@@ -6,14 +6,6 @@
 {%- set loading = options.loading or 'lazy' -%}
 {%- set width = options.width -%}
 {%- set height = options.height -%}
-{%- set sanitizedSrc = src
-  | replace('/', '-')
-  | replace('.', '-')
-  | replace(' ', '-')
-  | replace('#', '-')
-  | replace('?', '-')
-  | replace('&', '-')
--%}
 <figure class="hotspot-image {{ wrapperClass }}">
   <div class="hotspot-image__media {{ figureClass }}">
     <img
@@ -29,42 +21,68 @@
     <div class="hotspot-image__hotspots">
       {%- for hotspot in hotspots -%}
         {%- set placement = hotspot.placement or 'top' -%}
-        {%- set idBase = (options.idPrefix or ('hotspot-' ~ sanitizedSrc | lower)) ~ '-' ~ loop.index -%}
+        {%- set idSource = options.idPrefix or ('hotspot-' ~ src) -%}
+        {%- set idBase = (idSource | slugify) ~ '-' ~ loop.index -%}
         {%- set buttonId = idBase ~ '-button' -%}
-        {%- set popoverId = idBase ~ '-popover' -%}
+        {%- set panelId = idBase ~ '-panel' -%}
+        {%- set panelWidth = hotspot.panelWidth -%}
+        {%- set panelMaxHeight = hotspot.panelMaxHeight -%}
         <div
           class="hotspot-image__hotspot"
           data-hotspot
           data-placement="{{ placement }}"
           style="--hotspot-x: {{ hotspot.x }}%; --hotspot-y: {{ hotspot.y }}%;{% if hotspot.offsetX %} --popover-offset-x: {{ hotspot.offsetX }};{% endif %}{% if hotspot.offsetY %} --popover-offset-y: {{ hotspot.offsetY }};{% endif %}"
         >
-          <button
-            id="{{ buttonId }}"
-            type="button"
-            class="hotspot-image__trigger"
-            data-hotspot-toggle
-            aria-expanded="false"
-            aria-controls="{{ popoverId }}"
-          >{%- if hotspot.icon -%}
-            <span class="hotspot-image__trigger-icon">{{ hotspot.icon | safe }}</span>
-          {%- else -%}
-            {{ icons.plus('w-4 h-4') }}
-          {%- endif -%}
-          {%- if hotspot.label -%}
-            <span class="hotspot-image__trigger-label">{{ hotspot.label }}</span>
-          {%- else -%}
-            <span class="sr-only">Show hotspot details</span>
-          {%- endif -%}</button>
           <div
-            id="{{ popoverId }}"
-            class="hotspot-image__popover"
-            role="dialog"
-            aria-labelledby="{{ buttonId }}"
-            data-hotspot-popover
-            hidden
+            class="hotspot-image__bubble"
+            data-hotspot-bubble
+            style="{% if panelWidth %}--hotspot-open-width: {{ panelWidth }};{% endif %}{% if panelMaxHeight %} --hotspot-open-max-height: {{ panelMaxHeight }};{% endif %}"
           >
-            <div class="hotspot-image__popover-content">
-              {{ hotspot.content | safe }}
+            <button
+              id="{{ buttonId }}"
+              type="button"
+              class="hotspot-image__toggle"
+              data-hotspot-toggle
+              aria-expanded="false"
+              aria-controls="{{ panelId }}"
+            >
+              <span class="hotspot-image__toggle-icon">
+                {%- if hotspot.icon -%}
+                  {{ hotspot.icon | safe }}
+                {%- else -%}
+                  {{ icons.plus('w-4 h-4') }}
+                {%- endif -%}
+              </span>
+              <span class="hotspot-image__toggle-label">
+                {%- if hotspot.label -%}
+                  {{ hotspot.label }}
+                {%- else -%}
+                  Show hotspot details
+                {%- endif -%}
+              </span>
+            </button>
+            <div
+              id="{{ panelId }}"
+              class="hotspot-image__content"
+              role="dialog"
+              aria-labelledby="{{ buttonId }}"
+              data-hotspot-panel
+              aria-hidden="true"
+              hidden
+            >
+              <div class="hotspot-image__content-inner">
+                <button
+                  type="button"
+                  class="hotspot-image__close"
+                  data-hotspot-close
+                  aria-label="Close hotspot"
+                >
+                  {{ icons.x('w-4 h-4') }}
+                </button>
+                <div class="hotspot-image__content-body">
+                  {{ hotspot.content | safe }}
+                </div>
+              </div>
             </div>
           </div>
         </div>
