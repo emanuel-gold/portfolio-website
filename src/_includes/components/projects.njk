@@ -47,9 +47,9 @@
       <div class="mb-2 inline-block rounded-full border px-3 py-1 text-xs uppercase opacity-70">Recent work</div>
       <h2>My Recent Projects</h2>
     </div>
-
-    <div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-      <div class="flex flex-wrap items-center gap-2" data-tag-list>
+<div id="projects-animated">
+    <div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-center" data-aos="fade-up" data-aos-anchor="#projects-animated" data-aos-delay="100">
+      <div id="tag-list" class="flex flex-wrap items-center gap-2" data-tag-list>
         <button
           class="rounded-full border border-transparent bg-gray-900 px-3 py-1 text-sm text-white transition dark:bg-white dark:text-gray-900"
           data-badge="All"
@@ -74,8 +74,8 @@
         data-search-input
       />
     </div>
-
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" data-project-grid>
+  
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" data-project-grid data-aos="fade-up" data-aos-anchor="#projects-animated" data-aos-delay="300">
       {% if featuredDefaults | length > 0 %}
         {% for project in featuredDefaults %}
           {{ projectCard(project, true, true) | safe }}
@@ -95,7 +95,7 @@
       {% endif %}
     </div>
     <p class="hidden mt-4 py-4 text-center opacity-70" data-empty-state>No projects match that search.</p>
-    <div class="mt-8 inline-flex"> 
+    <div class="mt-8 inline-flex" data-aos="fade-up" data-aos-anchor="#projects-animated" data-aos-delay="500"> 
       <a
       href="/portfolio/"
       class="cta-solid"
@@ -107,5 +107,6 @@
         </svg>
       </a>
     </div>
+  </div>
   </div>
 </section>
