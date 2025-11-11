@@ -155,7 +155,7 @@
   }
 
   #progress-bar {
-    @apply h-1 z-50 bg-brand-gold;
+    @apply h-1 z-50 bg-brand-gold w-0;
   }
 }
 
@@ -188,5 +188,4 @@
     --tw-shadow-color: var(--shadow-color);
     --tw-shadow: var(--tw-shadow-colored);
   }
-
 }

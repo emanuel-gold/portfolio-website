@@ -142,8 +142,8 @@ const site = {
   "about": {
     "title": "About me",
     "paragraphs": [
-      "I'm a marketing technologist who builds fast websites and the plumbing behind them—analytics, SEO, and CRM automations. I prefer simple stacks, clean handoffs, and tight feedback loops.",
-      "In practice, that means React or 11ty on the front end, HubSpot and sensible automation in the back, and performance budgets from day one. I ship, measure, and iterate."
+      "I'm Emanuel. I build fast, reliable websites and the infrastructure behind them, including analytics, SEO, and CRM automations. I prefer simple & uncomplicated tech stacks, clean handoffs to marketing teams or site managers, and tight feedback loops.",
+      "Whether you need sales-ready marketing platform built in HubSpot, a dynamic website solution in WordPress, or a no-nonsense static site written in pure HTML, I build all my projects with scalability and performance from day one."
     ],
     "bulletPoints": [
       "Comfortable across design systems, component libraries, and CMS templating.",

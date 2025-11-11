@@ -1015,6 +1015,7 @@ ul {
 #progress-bar {
   z-index: 50;
   height: 0.25rem;
+  width: 0px;
   background-color: oklch(0.85 0.16 86.49);
 }
 
@@ -1571,6 +1572,10 @@ ul {
 
 .pointer-events-none {
   pointer-events: none;
+}
+
+.static {
+  position: static;
 }
 
 .fixed {
