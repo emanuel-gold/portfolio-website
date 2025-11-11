@@ -1,4 +1,22 @@
+import markdownIt from "markdown-it";
+import markdownItAttrs from "markdown-it-attrs";
+import markdownItAnchor from "markdown-it-anchor";
+import implicitFigures from "markdown-it-image-figures";
+
 export default function (config) {
+  config.setLibrary(
+    "md",
+    markdownIt()
+    .use(markdownItAttrs)
+    .use(markdownItAnchor)
+    .use(implicitFigures, { 
+      lazy: true,
+      dataType: true,
+      figcaption: "title",
+      async: true
+    })
+  );
+
   config.addPassthroughCopy({ public: "." });
   config.addPassthroughCopy({ "src/assets/js": "assets" });
   config.addWatchTarget("./src/assets/css/main.css");

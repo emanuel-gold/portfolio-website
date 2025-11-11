@@ -4,36 +4,41 @@ pageType: post
 ---
 {% import "components/icons.njk" as icons %}
 {% include "components/header.njk" %}
-<main class="py-10 sm:pt-10">
-  <div class="mx-auto w-full max-w-post px-4 sm:px-6 lg:px-8">
-    <a
-      href="/portfolio/"
-      class="mb-6 inline-flex items-center gap-2 text-sm font-medium text-fuchsia-600 transition hover:text-fuchsia-500 dark:text-fuchsia-400 dark:hover:text-fuchsia-300"
-    >
-      {{ icons.arrow_left('w-4 h-4') }}
-      Back to portfolio
-    </a>
-    <article class="prose dark:prose-invert md:prose-md lg:prose-lg  mx-auto rounded-3xl border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-800 dark:bg-gray-900">
-      <header class="mb-8">
-        <div class="pb-4 flex flex-col items-start sm:justify-between border-b dark:border-gray-800">
-          <h1 style="margin-bottom:16px;">{{ title }}</h1>
-          <span class="inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium uppercase opacity-70 dark:border-gray-700">
-            {{ period }}
-          </span>
-          <img class="rounded-2xl !my-4" src="{{ header_image }}">
-        </div>
-        {% if blurb %}
-          <p class="text-lg leading-relaxed opacity-90">{{ blurb | safe }}</p>
-        {% endif %}
-        {% if tags %}
-          <div class="mt-6 flex flex-wrap gap-2">
-            {% for tag in tags %}
-              <span class="rounded-full border border-gray-200 px-3 py-1 text-xs font-medium uppercase opacity-80 dark:border-gray-700">
-                {{ tag }}
-              </span>
-            {% endfor %}
+<main>
+    <article class="w-full px-4 py-10">
+      <header class="mb-8 mx-auto max-w-screen-xl">
+        <a
+          href="/portfolio/"
+          class="mb-6 inline-flex items-center gap-2 text-sm font-medium text-brand-fuchsia transition hover:text-fuchsia-500 dark:text-fuchsia-400 dark:hover:text-fuchsia-300"
+        >
+        {{ icons.arrow_left('w-4 h-4') }}
+        Back to portfolio
+        </a>
+        <div id="portfolio-post-header" class="pb-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b dark:border-gray-800">
+          <div id="header-content-wrapper">
+            <span id="time-period" class="inline-flex items-center text-sm font-medium uppercase opacity-70 ">
+              {{ period }}
+            </span>
+            <h1 id="title">{{ title }}</h1>
+            {% include "partials/accent-bar.njk" %}
+            {% if blurb %}
+              <p class="text-lg leading-relaxed opacity-90 my-5">{{ blurb | safe }}</p>
+            {% endif %}
+            {% if tags %}
+            <div class="mt-6 flex flex-wrap gap-2">
+              {% for tag in tags %}
+                <span class="rounded-full border border-gray-200 px-3 py-1 text-xs font-medium uppercase opacity-80 dark:border-gray-700">
+                  {{ tag }}
+                </span>
+              {% endfor %}
+            </div>
+            {% endif %}
           </div>
-        {% endif %}
+          <div id="header-image-wrapper">
+            <img class="rounded-2xl" src="{{ header_image }}">
+          </div>
+        </div>
+        {#
         {% if links %}
           <div class="mt-6 flex flex-wrap gap-4">
             {% if links.preview %}
@@ -48,12 +53,12 @@ pageType: post
             {% endif %}
           </div>
         {% endif %}
+        #}
       </header>
-      <div class="prose max-w-none dark:prose-invert">
+      <div id="prose" class="max-w-screen-lg grid grid-cols-[1fr_min(70ch,_100%)_1fr;] gap-y-4 mx-auto">
         {{ content | safe }}
       </div>
     </article>
-  </div>
 </main>
 {% include "components/contact.njk" %}
 {% include "components/footer.njk" %}
