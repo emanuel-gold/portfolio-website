@@ -1,5 +1,6 @@
 @import "fonts.css";
 @import "typescale.css";
+@import "imageHotspots.css";
 
 @tailwind base;
 @tailwind components;
@@ -67,12 +68,12 @@
     letter-spacing: 0.1em; 
   }
   h1 {
-    font-size: var(--display-lg-size);
+    font-size: clamp(var(--h1-size), 1.8942rem + 1.9231vw, var(--display-lg-size));
     line-height: var(--h1-line-height);
     letter-spacing: var(--h1-letter-spacing);
   }
   h2 {
-    font-size: var(--display-md-size);
+    font-size: clamp(var(--h2-size), 1.2115rem + 2.4038vw, var(--display-md-size));
     line-height: var(--h2-line-height);
     letter-spacing: var(--h2-letter-spacing);
   }
@@ -189,11 +190,11 @@
   }
 
   .cta-solid {
-    @apply inline-flex items-center gap-2 rounded-xl bg-brand-gold hover:brand-gradient-diagonal px-4 py-2 font-medium text-gray-900 hover:bg-transparent hover:text-white;
+    @apply h-12 flex items-center justify-center gap-2 rounded-xl bg-brand-gold hover:brand-gradient-diagonal px-4 py-2 font-medium text-gray-900 hover:bg-transparent hover:text-white;
   }
 
   .cta-transparent {
-    @apply transition inline-flex items-center gap-2 rounded-xl border px-4 py-2 font-medium hover:border-gray-900 hover:bg-gray-200 backdrop-blur dark:hover:bg-gray-800/70 dark:hover:border-white;
+    @apply h-12 transition flex items-center justify-center gap-2 rounded-xl border px-4 py-2 font-medium hover:border-gray-900 hover:bg-gray-200 backdrop-blur dark:hover:bg-gray-800/70 dark:hover:border-white;
   }
 
   .shadow-full {
