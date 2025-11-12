@@ -6,15 +6,15 @@
 
   /* Type Scale */
   --display-lg-size: 50px;
-  --display-lg-line-height: 1.5;
+  --display-lg-line-height: 1.1;
   --display-lg-letter-spacing: 0.015em;
 
   --display-md-size: 44px;
-  --display-md-line-height: 1.55;
+  --display-md-line-height: 1.15;
   --display-md-letter-spacing: 0.03em;
 
   --h1-size: 38px;
-  --h1-line-height: 1.55;
+  --h1-line-height: 1.15;
   --h1-letter-spacing: 0.03em;
 
   --h2-size: 29px;
