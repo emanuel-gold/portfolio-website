@@ -3,7 +3,7 @@ featured: true
 layout: layouts/post.njk
 title: "RAMPQuest"
 period: "2024-2025"
-order: 1
+order: 0
 blurb: "RAMPQuest is a cybersecurity consulting company that helps business improve their cybersecurity posture."
 tags:
   - WordPress

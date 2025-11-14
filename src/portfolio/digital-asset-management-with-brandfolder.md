@@ -1,5 +1,5 @@
 ---
-featured: true
+featured: false
 layout: layouts/post.njk
 title: "Implementing a Digital Asset Management Platform"
 period: "2021–2022"
