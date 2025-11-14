@@ -1984,10 +1984,6 @@ ul {
   grid-template-columns: 1fr min(70ch, 100%) 1fr;;
 }
 
-.flex-row {
-  flex-direction: row;
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -2641,16 +2637,8 @@ ul {
 }
 
 @media (min-width: 640px) {
-  .sm\:flex {
-    display: flex;
-  }
-
   .sm\:w-64 {
     width: 16rem;
-  }
-
-  .sm\:flex-\[0_0_220px\] {
-    flex: 0 0 220px;
   }
 
   .sm\:grid-cols-2 {

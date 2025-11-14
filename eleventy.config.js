@@ -2,6 +2,12 @@ import markdownIt from "markdown-it";
 import markdownItAttrs from "markdown-it-attrs";
 import markdownItAnchor from "markdown-it-anchor";
 import implicitFigures from "markdown-it-image-figures";
+import {
+  buildImageAttributes,
+  generateImageHTML,
+  escapeHtml,
+  prepareImage,
+} from "./tools/imageHelpers.js";
 
 export default function (config) {
 
@@ -50,6 +56,34 @@ export default function (config) {
     }
   );
 
+  config.addNunjucksAsyncShortcode(
+    "postImage",
+    async function (src, alt = "", options = {}) {
+      const {
+        imageOptions = {},
+        figure = true,
+        caption = null,
+        figureClass,
+        ...attributes
+      } = options ?? {};
+
+      const metadata = await prepareImage(this.page.inputPath, src, imageOptions);
+
+      const imageAttributes = buildImageAttributes({ alt, ...attributes });
+      const html = generateImageHTML(metadata, imageAttributes);
+
+      if (!figure) {
+        return html;
+      }
+
+      const classAttribute = figureClass ? ` class="${figureClass}"` : "";
+      const captionHtml = caption
+        ? `<figcaption>${escapeHtml(caption)}</figcaption>`
+        : "";
+      return `<figure${classAttribute}>${html}${captionHtml}</figure>`;
+    }
+  );
+
   const sortByOrderThenDate = (collection = []) => {
     return [...collection].sort((a, b) => {
       const orderA = Number.isFinite(a.data?.order) ? a.data.order : null;
@@ -73,14 +107,14 @@ export default function (config) {
 
   config.addCollection("portfolio", (collectionApi) =>
     sortByOrderThenDate(
-      collectionApi.getFilteredByGlob("./src/portfolio/**/*.md")
+      collectionApi.getFilteredByGlob("./src/portfolio/**/post.md")
     )
   );
 
   config.addCollection("featuredPortfolio", (collectionApi) =>
     sortByOrderThenDate(
       collectionApi
-        .getFilteredByGlob("./src/portfolio/**/*.md")
+        .getFilteredByGlob("./src/portfolio/**/post.md")
         .filter((item) => item.data?.featured)
     )
   );
