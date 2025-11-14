@@ -1,17 +1,17 @@
 const site = {
   "meta": {
     "siteName": "Emanuel Gold, PMP",
-    "title": "Emanuel Gold: Marketing Technologist, Project manager, & Web Developer",
+    "title": "Emanuel Gold, PMP: Marketing Technologist, Project manager, & Web Developer",
     "description": "Marketing technologist, project manager, and web developer focused on fast websites, automation, and tangible outcomes.",
-    "url": "https://emanuel.gold",
+    "url": "https://emanuel.gold/",
     "sameAs": [
-      "https://github.com/emanuel-gold"
+      "https://github.com/emanuel-gold/"
     ],
     "jobTitle": "Marketing Technologist, Project Manager"
   },
   "navigation": [
     {
-      "url": "/portfolio",
+      "url": "/portfolio/",
       "label": "Portfolio"
     },
     {
