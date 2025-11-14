@@ -1,7 +1,7 @@
 {% import "components/icons.njk" as icons %}
 <section id="top" class="bg-slate-100 bg-gradient-to-b from-light-gradient-start to-white dark:from-gray-950 dark:to-dark-gradient-end">
-  <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 items-center gap-8 py-14 sm:py-16 lg:grid-cols-2">
+  <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
+    <div class="lg:grid grid-cols-2 items-center gap-8 py-14 sm:py-16">
       <div class="content-wrapper flex flex-col text-center items-center max-w-screen-sm mx-auto lg:items-start lg:text-left">
         <p class="mb-3 inline-flex items-center gap-2 text-xs uppercase opacity-70">
           <span class="h-2 w-2 rounded-full bg-emerald-500"></span> {{ site.hero.availability }}
@@ -32,7 +32,7 @@
           #}
         </div>
       </div>
-      <div class="relative">
+      <div class="chip-wrapper relative hidden lg:block">
         <div class="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-tr from-fuchsia-500/10 via-cyan-400/10 to-emerald-400/10 blur-2xl"></div>
         <div class="grid grid-cols-2 gap-4 max-w-screen-sm md:max-w-xl mx-auto sm:gap-6" data-hero-chips>
           {% for chip in site.hero.highlightChips %}
