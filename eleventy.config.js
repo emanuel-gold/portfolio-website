@@ -4,6 +4,19 @@ import markdownItAnchor from "markdown-it-anchor";
 import implicitFigures from "markdown-it-image-figures";
 
 export default function (config) {
+
+  config.addFilter("truncateChars", (str, limit) => {
+    if (!str) return "";
+    const plain = str.replace(/\s+/g, " ").trim();
+    if (plain.length <= limit) return plain;
+    let truncated = plain.slice(0, limit);
+    const lastSpace = truncated.lastIndexOf(" ");
+    if (lastSpace > -1) {
+      truncated = truncated.slice(0, lastSpace);
+    }
+    return truncated + "…";
+  });
+
   config.setLibrary(
     "md",
     markdownIt()
