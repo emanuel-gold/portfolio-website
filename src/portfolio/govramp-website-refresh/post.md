@@ -4,7 +4,7 @@ layout: layouts/post.njk
 title: "GovRAMP"
 period: "2023–2024"
 order: 1
-blurb: "Nonprofit cybersecurity organization GovRAMP found its website outpaced by its own growth."
+blurb: "GovRAMP is a nonprofit cloud security organization that found its old website outpaced by its fast growth."
 tags:
   - WordPress
   - Web Development
