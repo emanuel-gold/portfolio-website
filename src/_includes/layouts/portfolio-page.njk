@@ -8,7 +8,7 @@ layout: layouts/base.njk
   {% set featuredProjects = collections.featuredPortfolio | default([]) | sortByOrderThenDate %}
   {% set allTags = projects | allTags %}
   <section id="projects" class="scroll-mt-24">
-    <div class="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto w-full max-w-4xl px-5 sm:px-8">
       <div class="mb-10">
         <h2>Portfolio</h2>
       </div>
@@ -42,13 +42,13 @@ layout: layouts/base.njk
       <div class="grid grid-cols-1 gap-10" data-project-grid data-show-featured-only="false">
         {% for project in featuredProjects %}
           <article
-            class="featured group flex flex-row rounded-2xl border overflow-hidden shadow-md transition dark:border-brand-dark-shadow/45 hover:shadow-lg"
+            class="featured group flex flex-col md:flex-row rounded-2xl border overflow-hidden shadow-md transition dark:border-brand-dark-shadow/45 hover:shadow-lg"
             data-project
             data-tags="{{ project.data.tags | default([]) | join(',') }}"
             data-featured="true"
           >
             {% if project.data.thumbnail %}
-              <div class="hidden sm:flex sm:flex-[0_0_167.7px]">
+              <div class="flex flex-[0_0_220px]">
                 <img class="object-cover" src="{{ project.data.thumbnail }}">
               </div>
             {% endif %}
@@ -60,7 +60,7 @@ layout: layouts/base.njk
                 <span class="text-xs opacity-60">{{ project.data.period }}</span>
               </div>
 
-              <p class="mb-4 text-sm opacity-90">{{ project.data.blurb | safe }}</p>
+              <p class="mb-4 text-sm opacity-90">{{ project.data.blurb | truncateChars(117) | safe }}</p>
               <div class="mb-4 flex flex-wrap gap-2">
                 {% for tag in project.data.tags %}
                   <span class="rounded-full border px-2 py-0.5 text-xs opacity-80 dark:border-gray-800">{{ tag }}</span>
@@ -87,13 +87,13 @@ layout: layouts/base.njk
         {% for project in projects %}
           {% if project not in featuredProjects %}
             <article
-              class="group flex flex-row rounded-2xl border overflow-hidden shadow-md transition dark:border-brand-dark-shadow/45 hover:shadow-lg"
+              class="group flex flex-col md:flex-row rounded-2xl border overflow-hidden shadow-md transition dark:border-brand-dark-shadow/45 hover:shadow-lg"
               data-project
               data-tags="{{ project.data.tags | default([]) | join(',') }}"
               data-featured="false"
             >
               {% if project.data.thumbnail %}
-                <div class="hidden sm:flex sm:flex-[0_0_167.7px]">
+                <div class="flex flex-[0_0_220px]">
                   <img class="object-cover" src="{{ project.data.thumbnail }}">
                 </div>
               {% endif %}
