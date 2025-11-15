@@ -12,6 +12,9 @@ tags:
   - UX/UI
   - Project Management
 links:
+  preview: 
+    url: "https://govramp.org/"
+    nofollow: true
 thumbnail: "./GR Mockup - Dark BG.webp"
 header_image: "./GR Mockup.webp"
 ---

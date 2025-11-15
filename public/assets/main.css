@@ -1865,34 +1865,12 @@ ul {
   height: 1.25rem;
 }
 
-.min-h-\[60vh\] {
-  min-height: 60vh;
+.min-h-\[75vh\] {
+  min-height: 75vh;
 }
 
 .min-h-screen {
   min-height: 100vh;
-}
-
-.min-h-min {
-  min-height: -moz-min-content;
-  min-height: min-content;
-}
-
-.min-h-max {
-  min-height: -moz-max-content;
-  min-height: max-content;
-}
-
-.min-h-\[100vh\] {
-  min-height: 100vh;
-}
-
-.min-h-\[80vh\] {
-  min-height: 80vh;
-}
-
-.min-h-\[75vh\] {
-  min-height: 75vh;
 }
 
 .w-2 {
@@ -2072,6 +2050,10 @@ ul {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .gap-y-4 {
@@ -2361,10 +2343,6 @@ ul {
 
 .leading-tight {
   line-height: 1.25;
-}
-
-.tracking-\[0\.2em\] {
-  letter-spacing: 0.2em;
 }
 
 .tracking-widest {

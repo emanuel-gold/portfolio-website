@@ -25,7 +25,7 @@ export default function (config) {
 
   config.setLibrary(
     "md",
-    markdownIt()
+    markdownIt({ html: true })
     .use(markdownItAttrs)
     .use(markdownItAnchor)
     .use(implicitFigures, { 
