@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+title: Page not found
+permalink: 404.html
+---
+{% include "components/header.njk" %}
+<main class="flex min-h-[75vh] flex-1 items-center bg-slate-100 bg-gradient-to-b from-light-gradient-start to-white py-16 sm:py-24 dark:from-gray-950 dark:to-dark-gradient-end">
+  <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <span class="inline-flex items-center gap-2 rounded-full border px-4 py-1 text-s font-semibold uppercase tracking-widest opacity-80 dark:border-gray-800">404</span>
+      <h1 class="mt-6 font-black text-4xl sm:text-5xl">That page doesn't exist.</h1>
+      <p class="mt-4 text-lg opacity-80">Not all those who wander are lost. Unfortunately... this page is pretty lost.</p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:justify-center">
+        <a href="/" class="cta-solid">Return home</a>
+        <a href="mailto:{{ site.contact.email }}" class="cta-transparent" data-scroll>Contact me</a>
+      </div>
+    </div>
+  </div>
+</main>
+{% include "components/footer.njk" %}
