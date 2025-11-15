@@ -33,27 +33,26 @@ pageType: post
               {% endfor %}
             </div>
             {% endif %}
+            {% if links %}
+            <div class="mt-6 flex flex-wrap gap-4">
+              {% if links.preview.url %}
+                <a href="{{ links.preview.url }}" class="inline-flex items-center gap-2 text-sm font-medium hover:underline" target="_blank" {% if links.preview.nofollow %}rel="nofollow"{% endif %}>
+                  {{ icons.external_link('w-4 h-4') }} Visit Site
+                </a>
+              {% endif %}
+              {% if links.repo %}
+                <a href="{{ links.repo }}" class="inline-flex items-center gap-2 text-sm font-medium hover:underline" target="_blank">
+                  {{ icons.github('w-4 h-4') }} Git Repo
+                </a>
+              {% endif %}
+            </div>
+            {% endif %}
           </div>
           <div id="header-image-wrapper">
             <img class="rounded-2xl" src="{{ header_image }}">
           </div>
         </div>
-        {#
-        {% if links %}
-          <div class="mt-6 flex flex-wrap gap-4">
-            {% if links.preview %}
-              <a href="{{ links.preview }}" class="inline-flex items-center gap-2 text-sm font-medium hover:underline">
-                {{ icons.external_link('w-4 h-4') }} Preview
-              </a>
-            {% endif %}
-            {% if links.repo %}
-              <a href="{{ links.repo }}" class="inline-flex items-center gap-2 text-sm font-medium hover:underline">
-                {{ icons.github('w-4 h-4') }} Code
-              </a>
-            {% endif %}
-          </div>
-        {% endif %}
-        #}
+
       </header>
       <div id="prose" class="max-w-screen-lg grid grid-cols-[1fr_min(70ch,_100%)_1fr;] gap-y-4 mx-auto">
         {{ content | safe }}

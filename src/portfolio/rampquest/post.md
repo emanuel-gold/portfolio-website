@@ -11,6 +11,9 @@ tags:
   - Web Development
   - Project Management
 links:
+  preview: 
+    url: "https://rampquest.com/"
+    nofollow: true
 thumbnail: "/img/RQ Mockup - Dark BG.webp"
 header_image: "/img/RQ Mockup.webp"
 ---
