@@ -169,7 +169,7 @@ const site = {
   "contact": {
     "eyebrow": "Let's work together",
     "title": "Contact",
-    "message": "Have a project or a problem? Send me a message with the details. We'll scope it out and get to work.",
+    "message": "Have a project or a problem? Send me a no-obligation message with the details. I'll work with you to figure out the details and bring your vision to life.",
     "email": "hello@emanuelgold.com",
     "github": {
       "href": "https://github.com/emanuel-gold",

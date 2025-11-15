@@ -1926,6 +1926,10 @@ ul {
   max-width: max-content;
 }
 
+.max-w-md {
+  max-width: 28rem;
+}
+
 .max-w-prose {
   max-width: 65ch;
 }
@@ -1940,6 +1944,14 @@ ul {
 
 .max-w-screen-xl {
   max-width: 1280px;
+}
+
+.max-w-xl {
+  max-width: 36rem;
+}
+
+.max-w-screen-md {
+  max-width: 768px;
 }
 
 .flex-1 {
@@ -2050,10 +2062,6 @@ ul {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-5 {
-  gap: 1.25rem;
 }
 
 .gap-y-4 {
