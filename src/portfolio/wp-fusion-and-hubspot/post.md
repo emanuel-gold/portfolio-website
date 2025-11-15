@@ -1,10 +1,10 @@
 ---
 featured: true
 layout: layouts/post.njk
-title: "Connecting WordPress & HubSpot with WP Fusion"
+title: "WP Fusion: Automating CRM Records"
 period: "2021–2022"
 order: 3
-blurb: "A rapidly-growing nonprofit was gathering more contact data than it could manage. Although the team had access to HubSpot’s robust CRM features, entering contact data manually was costly and complicated."
+blurb: "A rapidly scaling nonprofit was wasting time and budget by manually entering contacts into its CRM."
 tags:
   - WordPress
   - Web Development
