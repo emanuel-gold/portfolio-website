@@ -24,20 +24,20 @@
         <span class="rounded-full border px-2 py-0.5 text-xs opacity-80 dark:border-gray-800">{{ tag }}</span>
       {% endfor %}
     </div>
-    <div class="flex items-center mt-auto gap-3">
-      {% if project.data.links.preview %}
-        <a href="{{ project.data.links.preview }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline">
-          {{ icons.external_link('w-4 h-4') }} Preview
-        </a>
-      {% endif %}
-      {% if project.data.links.repo %}
-        <a href="{{ project.data.links.repo }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline">
-          {{ icons.github('w-4 h-4') }} Code
-        </a>
-      {% endif %}
+    <div class="flex items-center mt-auto gap-5">
       <a href="{{ project.url }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline">
         {{ icons.file_text('w-4 h-4') }} Read case study
       </a>
+      {% if project.data.links.preview.url %}
+        <a href="{{ project.data.links.preview.url }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline" target="_blank" {% if links.preview.nofollow %}rel="nofollow"{% endif %}>
+          {{ icons.external_link('w-4 h-4') }} Visit Site
+        </a>
+      {% endif %}
+      {% if project.data.links.repo %}
+        <a href="{{ project.data.links.repo }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline" target="_blank">
+          {{ icons.github('w-4 h-4') }} Code
+        </a>
+      {% endif %}
     </div>
   </article>
 {% endmacro %}

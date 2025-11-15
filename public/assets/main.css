@@ -2052,6 +2052,10 @@ ul {
   gap: 2rem;
 }
 
+.gap-5 {
+  gap: 1.25rem;
+}
+
 .gap-y-4 {
   row-gap: 1rem;
 }
