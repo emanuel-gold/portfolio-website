@@ -46,12 +46,12 @@ const site = {
     "highlightChips": [
       "PMP Certified",
       "HubSpot Certified",
-      "WordPress Development",
-      "Static Site Development",
+      "WordPress",
+      "Static Sites",
       "CRM Optimization",
       "Marketing Automation",
       "Digital Marketing",
-      "SEO & GEO"
+      "SEO/GEO"
     ]
   },
   "skills": [

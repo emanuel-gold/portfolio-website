@@ -1010,7 +1010,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: clamp(var(--h1-size), 1.8942rem + 1.9231vw, var(--display-lg-size));
+  font-size: clamp(var(--h1-size), 1.928rem + 1.662vw, var(--display-lg-size));
   line-height: var(--h1-line-height);
   letter-spacing: var(--h1-letter-spacing);
 }
@@ -1926,10 +1926,6 @@ ul {
   max-width: max-content;
 }
 
-.max-w-md {
-  max-width: 28rem;
-}
-
 .max-w-prose {
   max-width: 65ch;
 }
@@ -1938,20 +1934,16 @@ ul {
   max-width: 1024px;
 }
 
+.max-w-screen-md {
+  max-width: 768px;
+}
+
 .max-w-screen-sm {
   max-width: 640px;
 }
 
 .max-w-screen-xl {
   max-width: 1280px;
-}
-
-.max-w-xl {
-  max-width: 36rem;
-}
-
-.max-w-screen-md {
-  max-width: 768px;
 }
 
 .flex-1 {
@@ -1972,6 +1964,26 @@ ul {
 
 .grow {
   flex-grow: 1;
+}
+
+.basis-1\/2 {
+  flex-basis: 50%;
+}
+
+.basis-5\/12 {
+  flex-basis: 41.666667%;
+}
+
+.basis-7\/12 {
+  flex-basis: 58.333333%;
+}
+
+.basis-auto {
+  flex-basis: auto;
+}
+
+.basis-\[56\%\] {
+  flex-basis: 56%;
 }
 
 @keyframes pulse {
@@ -2062,6 +2074,10 @@ ul {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-9 {
+  gap: 2.25rem;
 }
 
 .gap-y-4 {
@@ -2261,11 +2277,6 @@ ul {
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-}
-
-.py-2\.5 {
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
 }
 
 .py-3 {
@@ -2784,8 +2795,17 @@ ul {
 }
 
 @media (min-width: 1024px) {
+  .lg\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
   .lg\:block {
     display: block;
+  }
+
+  .lg\:flex {
+    display: flex;
   }
 
   .lg\:grid {
@@ -2819,6 +2839,21 @@ ul {
 
   .lg\:text-left {
     text-align: left;
+  }
+
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+@media (min-width: 1030px) {
+  .min-\[1030px\]\:basis-7\/12 {
+    flex-basis: 58.333333%;
+  }
+
+  .min-\[1030px\]\:basis-5\/12 {
+    flex-basis: 41.666667%;
   }
 }
 
