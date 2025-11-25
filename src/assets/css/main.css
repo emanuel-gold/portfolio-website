@@ -168,12 +168,12 @@
     border-color: #ccc;
   }
 
-  #progress-bar-wrapper {
+  .progress-bar-wrapper {
     @apply w-full h-1 z-[49];
   }
 
-  #progress-bar {
-    @apply h-1 z-50 bg-brand-gold;
+  .progress-bar {
+    @apply w-0 h-1 z-50 bg-brand-gold;
   }
 }
 

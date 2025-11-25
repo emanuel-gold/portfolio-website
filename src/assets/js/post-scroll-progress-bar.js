@@ -1,6 +1,8 @@
-window.addEventListener("scroll", function () {
-    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let scrollPercentage = (scrollTop / scrollHeight) * 100;
-    document.getElementById("progress-bar").style.width = scrollPercentage + "%";
-});
+window.onscroll = function() {progressIndicator()};
+
+function progressIndicator() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("progressBar").style.width = scrolled + "%";
+}
