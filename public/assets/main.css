@@ -1010,7 +1010,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: clamp(var(--h1-size), 2.505rem + 1.729vw, var(--display-lg-size));
+  font-size: clamp(var(--h1-size), 2.417rem + 2.083vw, var(--display-lg-size));
   line-height: var(--h1-line-height);
   letter-spacing: var(--h1-letter-spacing);
 }
