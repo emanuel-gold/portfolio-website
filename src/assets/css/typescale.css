@@ -5,15 +5,15 @@
   --font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
 
   /* Type Scale */
-  --display-lg-size: 50px;
+  --display-lg-size: 60px;
   --display-lg-line-height: 1.1;
   --display-lg-letter-spacing: 0.015em;
 
-  --display-md-size: 44px;
+  --display-md-size: 54px;
   --display-md-line-height: 1.15;
   --display-md-letter-spacing: 0.03em;
 
-  --h1-size: 38px;
+  --h1-size: 47px;
   --h1-line-height: 1.15;
   --h1-letter-spacing: 0.03em;
 

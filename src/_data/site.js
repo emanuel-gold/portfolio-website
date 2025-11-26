@@ -27,9 +27,9 @@ const site = {
     "url": "/docs/Emanuel Gold, PMP - Resume.pdf"
   },
   "hero": {
-    "availability": "Available for projects",
-    "heading": "<span class=\"test brand-gradient-right bg-clip-text text-transparent\">Emanuel Gold:</span> creator of fast websites & efficient projects.",
-    "summary": "I design, develop, and ship high-performance websites and CRM solutions using PMP-certified project management skills. My focus is on delivering clear value, clean code, and measurable outcomes.",
+    "availability": "Available for work",
+    "heading": "<span class=\"brand-gradient-right bg-clip-text text-transparent\">Emanuel Gold:</span> creator of fast websites & efficient projects.",
+    "summary": "I design, develop, and deliver high-performance websites and custom marketing solutions.",
     "primaryCta": {
       "href": "mailto:hello@emanuelgold.com",
       "label": "Get in touch"
