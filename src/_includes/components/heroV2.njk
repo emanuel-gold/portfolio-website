@@ -3,11 +3,33 @@
 <section id="top" class="bg-slate-100 bg-gradient-to-b from-light-gradient-start to-white dark:from-gray-950 dark:to-dark-gradient-end">
   <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
     <div class="lg:flex grid-cols-2 items-center gap-8 py-14 sm:py-16">
-      <div class="content-wrapper flex flex-col basis-[56%] min-[1030px]:basis-7/12 text-center items-center max-w-screen-sm mx-auto lg:mx-0 lg:items-start lg:text-left">
+      <div class="content-wrapper flex flex-col basis-[56%] lg:basis-5/12 text-center items-center max-w-screen-sm mx-auto lg:mx-0 lg:items-start lg:text-left">
         <p class="mb-3 inline-flex items-center gap-2 text-xs uppercase opacity-70">
           <span class="h-2 w-2 rounded-full bg-emerald-500"></span> {{ site.hero.availability }}
         </p>
-        <h1 class="mb-4 font-black">{{ site.hero.heading | safe }}</h1>
+        {#<h1 class="mb-4 font-black">{{ site.hero.heading | safe }}</h1>#}
+        <div class="scrolling-header-section hero heading-h-readable w-full flex justify-center flex-col h-full relative">
+            <h1 class="hero_heading animated-h1 font-black">
+              <span class="brand-gradient-right bg-clip-text text-transparent">Emanuel Gold:</span><span class="block"></span>
+              <span class="hero_header-scrolling-wrapper inline-block m-auto overflow-hidden align-bottom">
+                <ul class="hero_header-scrolling-list m-0 p-0 inline-block list-none">
+                  <li class="header-scrolling-list-item text-center lg:text-left items-start m-0 p-0 list-none after:content-['.'] after:text-brand-gold"> web developer</li>
+                  <li class="header-scrolling-list-item text-center lg:text-left items-start m-0 p-0 list-none after:content-['.'] after:text-brand-gold"> project manager</li>
+                  <li class="header-scrolling-list-item text-center lg:text-left items-start m-0 p-0 list-none after:content-['.'] after:text-brand-gold"> martech expert</li>
+                  <li class="header-scrolling-list-item text-center lg:text-left items-start m-0 p-0 list-none after:content-['.'] after:text-brand-gold"> problem solver</li>
+                  <li class="header-scrolling-list-item text-center lg:text-left items-start m-0 p-0 list-none after:content-['.'] after:text-brand-gold"> web developer</li>
+                </ul>
+              </span>
+            </h1>
+          <script type="application/json" id="heading-h-readable_scroll-animation-settings" nonce="">
+              {
+                "animationSpeed": 1100,
+                "animationPause": 1700,
+                "animationScrollHeight": 240,
+                "animationEasingFunction": "cubic-bezier(0.66, 0.00, 0.24, 1.00)"
+              }
+            </script>
+        </div>
         <p class="mb-8 max-w-[52ch] text-lg opacity-90 ">{{ site.hero.summary }}</p>
         <div class="flex flex-col sm:flex-row justify-center w-full lg:justify-start flex-wrap gap-6">
           <a
@@ -33,13 +55,8 @@
           #}
         </div>
       </div>
-      <div class="chip-wrapper relative hidden basis-auto min-[1030px]:basis-5/12 lg:block">
-        <div class="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-tr from-fuchsia-500/10 via-cyan-400/10 to-emerald-400/10 blur-2xl"></div>
-        <div class="grid grid-cols-2 gap-4 max-w-screen-sm md:max-w-xl mx-auto sm:gap-6" data-hero-chips>
-          {% for chip in site.hero.highlightChips %}
-            <div class="flex flex-col justify-center align-center rounded-2xl border p-4 text-center text-xs lg:text-sm font-medium shadow-sm dark:border-brand-dark-shadow/45"><span >{{ chip }}</span></div>
-          {% endfor %}
-        </div>
+      <div class="image-wrapper relative hidden basis-auto lg:basis-7/12 lg:block">
+        <img class="image h-full w-full" src="/img/Home Page Mockup - No Shadow.webp" alt="">
       </div>
     </div>
   </div>

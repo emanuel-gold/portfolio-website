@@ -1112,16 +1112,15 @@ ul {
   border-color: #ccc;
 }
 
-.progress-bar-wrapper {
+#progress-bar-wrapper {
   z-index: 49;
   height: 0.25rem;
   width: 100%;
 }
 
-.progress-bar {
+#progress-bar {
   z-index: 50;
   height: 0.25rem;
-  width: 0px;
   background-color: oklch(0.85 0.16 86.49);
 }
 
@@ -1748,6 +1747,14 @@ ul {
   z-index: 50;
 }
 
+.m-0 {
+  margin: 0px;
+}
+
+.m-auto {
+  margin: auto;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1866,6 +1873,10 @@ ul {
   height: 1.25rem;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .min-h-\[75vh\] {
   min-height: 75vh;
 }
@@ -1979,6 +1990,10 @@ ul {
   flex-basis: auto;
 }
 
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 @keyframes pulse {
   50% {
     opacity: .5;
@@ -2003,6 +2018,10 @@ ul {
 
 .list-disc {
   list-style-type: disc;
+}
+
+.list-none {
+  list-style-type: none;
 }
 
 .grid-cols-1 {
@@ -2198,6 +2217,10 @@ ul {
      object-fit: cover;
 }
 
+.p-0 {
+  padding: 0px;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -2293,6 +2316,10 @@ ul {
 
 .text-center {
   text-align: center;
+}
+
+.align-bottom {
+  vertical-align: bottom;
 }
 
 .text-4xl {
@@ -2559,6 +2586,16 @@ ul {
   opacity: 0.6;
 }
 
+.after\:text-brand-gold::after {
+  content: var(--tw-content);
+  color: oklch(0.85 0.16 86.49);
+}
+
+.after\:content-\[\'\.\'\]::after {
+  --tw-content: '.';
+  content: var(--tw-content);
+}
+
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
@@ -2727,11 +2764,6 @@ ul {
     padding-bottom: 6rem;
   }
 
-  .sm\:py-6 {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-
   .sm\:pt-16 {
     padding-top: 4rem;
   }
@@ -2806,8 +2838,16 @@ ul {
     display: grid;
   }
 
-  .lg\:max-w-screen-xl {
-    max-width: 1280px;
+  .lg\:basis-5\/12 {
+    flex-basis: 41.666667%;
+  }
+
+  .lg\:basis-7\/12 {
+    flex-basis: 58.333333%;
+  }
+
+  .lg\:basis-1\/2 {
+    flex-basis: 50%;
   }
 
   .lg\:grid-cols-2 {
@@ -2835,28 +2875,14 @@ ul {
     padding-right: 2rem;
   }
 
-  .lg\:py-10 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-  }
-
   .lg\:text-left {
     text-align: left;
-  }
-
-  .lg\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
   }
 }
 
 @media (min-width: 1030px) {
-  .min-\[1030px\]\:basis-5\/12 {
-    flex-basis: 41.666667%;
-  }
-
-  .min-\[1030px\]\:basis-7\/12 {
-    flex-basis: 58.333333%;
+  .min-\[1030px\]\:basis-1\/2 {
+    flex-basis: 50%;
   }
 }
 
