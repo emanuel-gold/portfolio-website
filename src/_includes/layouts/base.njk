@@ -29,6 +29,9 @@
       })();
     </script>
     {% if layout == "layouts/post.njk" %}<script src="/assets/post-scroll-progress-bar.js" defer></script>{% endif %}
+    <style>
+      .hero{--hero-height:calc(100dvh - var(--global-nav-header-height))}.hero:not(.wf-above-the-fold *){height:var(--hero-height);transition:height .3s ease-out}.heading-h-readable.hero{--hero-image-loaded-speed:400ms;--hero-image-loaded-easing-function:ease-out}.heading-h-readable .hero_heading{--hero-heading-custom-line-height:55px;line-height:var(--hero-heading-custom-line-height);margin-block-start:0;margin-block-end:1.5rem}.heading-h-readable .hero_header-scrolling-wrapper{height:var(--hero-heading-custom-line-height)}.heading-h-readable .header-scrolling-list-item{line-height:var(--hero-heading-custom-line-height);height:var(--hero-heading-scroll-height);margin-block:0}@media (prefers-reduced-motion:reduce){.heading-h-readable .hero,.heading-h-readable .hero::before,.heading-h-readable .hero_description,.heading-h-readable .hero_heading,.heading-h-readable .hero_tagline{transition:none}}
+    </style>
   </head>
   <body class="min-h-screen bg-slate-100 text-gray-900 antialiased dark:bg-slate-950 dark:text-gray-100" data-aos-easing="ease-out" data-aos-delay="0">
     {{ content | safe }}
@@ -43,6 +46,7 @@
       } | dump | safe }}
     </script>
     <script src="/assets/main.js" type="module"></script>
+    <script src="/assets/scrollingText.js"></script>
     <script>AOS.init({ once: true, duration: 600 });</script>
     {% if layout == "layouts/post.njk" %}<script src="/assets/imageHotspots.js" type="module"></script>{% endif %}
   </body>
