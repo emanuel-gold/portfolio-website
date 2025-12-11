@@ -2037,6 +2037,10 @@ ul {
   grid-template-columns: 1fr min(70ch, 100%) 1fr;;
 }
 
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -2745,6 +2749,11 @@ ul {
     gap: 1.5rem;
   }
 
+  .sm\:px-20 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -2768,6 +2777,11 @@ ul {
   .sm\:py-6 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+  }
+
+  .sm\:py-\[6\.8rem\] {
+    padding-top: 6.8rem;
+    padding-bottom: 6.8rem;
   }
 
   .sm\:pt-16 {
@@ -2864,8 +2878,16 @@ ul {
     align-items: flex-start;
   }
 
+  .lg\:items-end {
+    align-items: flex-end;
+  }
+
   .lg\:justify-start {
     justify-content: flex-start;
+  }
+
+  .lg\:justify-end {
+    justify-content: flex-end;
   }
 
   .lg\:gap-3 {
@@ -2884,6 +2906,10 @@ ul {
 
   .lg\:text-left {
     text-align: left;
+  }
+
+  .lg\:text-right {
+    text-align: right;
   }
 }
 

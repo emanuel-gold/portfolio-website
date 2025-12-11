@@ -1,0 +1,33 @@
+{# Hero designed to be used as a linkedin header #}
+{% import "components/icons.njk" as icons %}
+<section id="top" class="bg-slate-100 bg-gradient-to-b from-light-gradient-start to-white dark:from-gray-950 dark:to-dark-gradient-end">
+  <div class="mx-auto w-full max-w-8xl px-5 sm:px-20">
+    <div class="lg:flex flex-row-reverse grid-cols-2 items-center gap-8 py-14 sm:py-[6.8rem]">
+      <div class="content-wrapper flex flex-col basis-[56%] lg:basis-5/12 text-center items-center max-w-screen-sm mx-auto lg:mx-0 lg:items-end lg:text-right">
+      
+        {#<h1 class="mb-4 font-black">{{ site.hero.heading | safe }}</h1>#}
+        <div class=" hero heading-h-readable w-full flex justify-center flex-col h-full relative">
+            <h1 class="hero_heading font-black mb-2">
+              <span class="brand-gradient-right bg-clip-text text-transparent">Emanuel Gold, PMP:</span><span class="block"></span>
+              
+            </h1>
+          
+        </div>
+        <p class="mb-8 max-w-[52ch] text-lg opacity-90 ">Project Manager | Web developer | Problem Solver</p>
+        <div class="flex flex-col sm:flex-row justify-center w-full lg:justify-end flex-wrap gap-6">
+          <a
+            href="{{ site.hero.primaryCta.href }}"
+            class="cta-solid"
+          >
+            {{ icons.external_link('w-5 h-5') }} emanuelgold.com
+          </a>
+          
+        </div>
+       
+      </div>
+      <div class="image-wrapper relative hidden">
+        <img class="image h-full w-full" src="/img/Home Page Mockup - No Shadow.webp" alt="">
+      </div>
+    </div>
+  </div>
+</section>
