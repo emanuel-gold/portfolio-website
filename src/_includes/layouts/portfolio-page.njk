@@ -68,8 +68,8 @@ layout: layouts/base.njk
               </div>
               <div class="flex items-center mt-auto gap-3">
                 {% if project.data.links.preview %}
-                  <a href="{{ project.data.links.preview.url }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline">
-                    {{ icons.external_link('w-4 h-4') }} Preview
+                  <a href="{{ project.data.links.preview.url }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline" target="_blank" {% if links.preview.nofollow %}rel="nofollow"{% endif %}>
+                    {{ icons.external_link('w-4 h-4') }} Visit site
                   </a>
                 {% endif %}
                 {% if project.data.links.repo %}
@@ -113,8 +113,8 @@ layout: layouts/base.njk
                 </div>
                 <div class="flex items-center mt-auto gap-3">
                   {% if project.data.links.preview %}
-                    <a href="{{ project.data.links.preview.url }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline">
-                      {{ icons.external_link('w-4 h-4') }} Preview
+                    <a href="{{ project.data.links.preview.url }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline" target="_blank" {% if links.preview.nofollow %}rel="nofollow"{% endif %}>
+                      {{ icons.external_link('w-4 h-4') }} Visit site
                     </a>
                   {% endif %}
                   {% if project.data.links.repo %}
