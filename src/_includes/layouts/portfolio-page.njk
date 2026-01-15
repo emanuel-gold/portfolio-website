@@ -68,7 +68,7 @@ layout: layouts/base.njk
               </div>
               <div class="flex items-center mt-auto gap-3">
                 {% if project.data.links.preview %}
-                  <a href="{{ project.data.links.preview }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline">
+                  <a href="{{ project.data.links.preview.url }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline">
                     {{ icons.external_link('w-4 h-4') }} Preview
                   </a>
                 {% endif %}
@@ -113,7 +113,7 @@ layout: layouts/base.njk
                 </div>
                 <div class="flex items-center mt-auto gap-3">
                   {% if project.data.links.preview %}
-                    <a href="{{ project.data.links.preview }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline">
+                    <a href="{{ project.data.links.preview.url }}" class="inline-flex items-center gap-1 text-sm font-medium hover:underline">
                       {{ icons.external_link('w-4 h-4') }} Preview
                     </a>
                   {% endif %}
