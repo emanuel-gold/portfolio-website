@@ -4,10 +4,10 @@ layout: layouts/post.njk
 title: "RAMPQuest"
 period: "2024-2025"
 order: 0
-blurb: "RAMPQuest is a cybersecurity consulting company that helps business improve their cybersecurity posture."
+blurb: "Developing a HubSpot CMS website for a consulting company that helps business strengthen their cybersecurity posture."
 tags:
-  - WordPress
   - HubSpot
+  - WordPress
   - Web Development
   - Project Management
 links:
