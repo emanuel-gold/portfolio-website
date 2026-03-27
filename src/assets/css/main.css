@@ -66,8 +66,8 @@
     --mockup-grid-gap-bottom: 14rem;
     --mockup-grid-middle-x: clamp(220px, 28vw, 320px);
     --mockup-grid-middle-y: auto;
-    --mockup-screen-rotation: perspective(60rem) rotateY(336deg) rotateX(5deg) rotateZ(359.3deg);
-    --mockup-grid-cols: [front-start] var(--mockup-grid-x) [mid-start] var(--mockup-grid-x) [back-start] var(--mockup-grid-middle-x) [front-end] var(--mockup-grid-x) [mid-end] var(--mockup-grid-x) [back-end];
+    --mockup-screen-rotation: perspective(69rem) rotateY(340deg) rotateX(3deg) rotateZ(359deg);
+    --mockup-grid-cols: [back-start] var(--mockup-grid-x) [mid-start] var(--mockup-grid-x) [front-start] var(--mockup-grid-middle-x) [back-end] var(--mockup-grid-x) [mid-end] var(--mockup-grid-x) [front-end];
     --mockup-grid-rows: [front-top] var(--mockup-grid-y) [mid-top] var(--mockup-grid-y) [back-top] var(--mockup-grid-middle-y) [front-bottom] var(--mockup-grid-y) [mid-bottom] var(--mockup-grid-y) [back-bottom];
     color-scheme: light dark;
   }
@@ -258,17 +258,17 @@
     }
 
     .mockup-screen:not(:first-child):hover {
-      transform: rotate(6deg) translateY(-15px) translateX(clamp(30px, 4vw, 60px));
+      transform: rotate(-6deg) translateY(-15px) translateX(clamp(-60px, -4vw, -30px));
       transition: 0.5s ease-out;
     }
 
     .image-wrapper:has(.mockup-screen:not(:first-child):hover) .mockup-screen:first-child {
-      transform: translateX(clamp(-100px, -8vw, -50px)) var(--mockup-screen-rotation);
+      transform: translateX(clamp(50px, 8vw, 100px)) var(--mockup-screen-rotation);
       transition: 0.5s ease-out;
     }
 
     .image-wrapper:has(.mockup-screen:not(:first-child):hover) .mockup-screen:not(:first-child):not(:hover) {
-      transform: translateX(clamp(-150px, -12vw, -80px)) var(--mockup-screen-rotation);
+      transform: translateX(clamp(80px, 12vw, 150px)) var(--mockup-screen-rotation);
       transition: 0.5s ease-out;
     }
   }
