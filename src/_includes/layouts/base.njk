@@ -1,5 +1,9 @@
 {%- set pageTitle = title or site.meta.title -%}
-{%- set pageDescription = description or site.meta.description -%}
+{%- set pageDescription = description or blurb or site.meta.description -%}
+{%- set baseUrl = site.meta.url | replace(r/\/$/g, '') -%}
+{%- set pageUrl = baseUrl ~ page.url -%}
+{%- set pageImage = header_image or thumbnail or '/img/og-default.jpg' -%}
+{%- set fullImageUrl = baseUrl ~ pageImage -%}
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
@@ -7,6 +11,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ pageTitle }}</title>
     <meta name="description" content="{{ pageDescription }}" />
+    <meta name="author" content="{{ site.footer.owner }}" />
+    <link rel="canonical" href="{{ pageUrl }}" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ pageTitle }}" />
+    <meta property="og:description" content="{{ pageDescription }}" />
+    <meta property="og:url" content="{{ pageUrl }}" />
+    <meta property="og:type" content="{% if layout == 'layouts/post.njk' %}article{% else %}website{% endif %}" />
+    <meta property="og:image" content="{{ fullImageUrl }}" />
+    <meta property="og:site_name" content="{{ site.meta.siteName }}" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ pageTitle }}" />
+    <meta name="twitter:description" content="{{ pageDescription }}" />
+    <meta name="twitter:image" content="{{ fullImageUrl }}" />
     <link rel="preload" href="/assets/fonts/bebas-neue.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/assets/main.css" />
     <!--GOOGLE FONTS-->
