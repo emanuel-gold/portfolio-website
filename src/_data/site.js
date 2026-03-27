@@ -38,7 +38,7 @@ const site = {
       "href": "#projects",
       "label": "See recent work"
     },
-    "location": "USA (Remote)",
+    "location": "Indianapolis, IN",
     "github": {
       "href": "https://github.com/emanuel-gold",
       "label": "GitHub"
@@ -92,58 +92,53 @@ const site = {
       "level": 65
     }
   ],
-  "certifications": [
-    {
-      "name": "Project Management Professional (PMP)",
-      "image": "/img/project-management-professional-pmp-170.png",
-      "link": "https://www.credly.com/badges/d0694e5e-5b5a-468d-80ef-f73d5e24da83/public_url",
-      "issuer": {
-        "name": "Project Management Institute",
-        "link": "https://www.pmi.org/"
+  "certifications": {
+    "eyebrow": "Credentials",
+    "standalone": [
+      {
+        "name": "Project Management Professional (PMP)",
+        "image": "/img/project-management-professional-pmp-170.png",
+        "link": "https://www.credly.com/badges/d0694e5e-5b5a-468d-80ef-f73d5e24da83/public_url",
+        "issuer": {
+          "name": "Project Management Institute",
+          "link": "https://www.pmi.org/"
+        }
       }
-    },
-    {
-      "name": "Content Hub Software",
-      "image": "/img/hubspot-logo-orange.jpeg",
-      "link": "https://app.hubspot.com/academy/achievements/d9ng4ff9/en/1/emanuel-gold/hubspot-content-hub-for-marketers",
-      "issuer": {
-        "name": "Hubspot Academy",
-        "link": "https://academy.hubspot.com/"
+    ],
+    "groups": [
+      {
+        "issuer": {
+          "name": "HubSpot Academy",
+          "link": "https://academy.hubspot.com/"
+        },
+        "image": "/img/hubspot-logo-orange.jpeg",
+        "certs": [
+          {
+            "name": "Content Hub Software",
+            "link": "https://app.hubspot.com/academy/achievements/d9ng4ff9/en/1/emanuel-gold/hubspot-content-hub-for-marketers"
+          },
+          {
+            "name": "SEO II",
+            "link": "https://app.hubspot.com/academy/achievements/qcfdgsm5/en/1/emanuel-gold/seo-ii"
+          },
+          {
+            "name": "SEO",
+            "link": "https://app.hubspot.com/academy/achievements/skhp4q10/en/1/emanuel-gold/seo"
+          },
+          {
+            "name": "Inbound Marketing",
+            "link": "https://app.hubspot.com/academy/achievements/rv801tv8/en/1/emanuel-gold/inbound-marketing"
+          }
+        ]
       }
-    },
-    {
-      "name": "SEO II",
-      "image": "/img/hubspot-logo-orange.jpeg",
-      "link": "https://app.hubspot.com/academy/achievements/qcfdgsm5/en/1/emanuel-gold/seo-ii",
-      "issuer": {
-        "name": "Hubspot Academy",
-        "link": "https://academy.hubspot.com/"
-      }
-    },
-    {
-      "name": "SEO",
-      "image": "/img/hubspot-logo-orange.jpeg",
-      "link": "https://app.hubspot.com/academy/achievements/skhp4q10/en/1/emanuel-gold/seo",
-      "issuer": {
-        "name": "Hubspot Academy",
-        "link": "https://academy.hubspot.com/"
-      }
-    },
-    {
-      "name": "Inbound Marketing",
-      "image": "/img/hubspot-logo-orange.jpeg",
-      "link": "https://app.hubspot.com/academy/achievements/rv801tv8/en/1/emanuel-gold/inbound-marketing",
-      "issuer": {
-        "name": "Hubspot Academy",
-        "link": "https://academy.hubspot.com/"
-      }
-    }
-  ],
+    ]
+  },
   "about": {
+    "eyebrow": "Get to know me",
     "title": "About me",
     "paragraphs": [
-      "I'm Emanuel. I build fast, reliable websites and the infrastructure behind them, including analytics, SEO, and CRM automations. I prefer simple & uncomplicated tech stacks, clean handoffs to marketing teams or site managers, and tight feedback loops.",
-      "Whether you need sales-ready marketing platform built in HubSpot, a dynamic website solution in WordPress, or a no-nonsense static site written in pure HTML, I build all my projects with scalability and performance from day one."
+      "I'm Emanuel. I build fast, reliable websites and the infrastructure behind them, including analytics, SEO, and CRM automations. I prefer simple & uncomplicated tech stacks, clean handoffs to your site manager, and tight feedback loops.",
+      "Whether you need a sales-ready marketing platform built in HubSpot, a dynamic website solution in WordPress, or a no-nonsense static site written in pure HTML, I build all my projects with scalability and performance from day one."
     ],
     "bulletPoints": [
       "Comfortable across design systems, component libraries, and CMS templating.",
@@ -154,11 +149,11 @@ const site = {
     "facts": [
       {
         "term": "Location",
-        "description": "USA (Remote)"
+        "description": "Indianapolis, IN"
       },
       {
         "term": "Focus",
-        "description": "Web, SEO, CRM"
+        "description": "Web Dev, Marketing Ops"
       },
       {
         "term": "Availability",
@@ -177,7 +172,20 @@ const site = {
     }
   },
   "footer": {
-    "owner": "Emanuel Gold"
+    "owner": "Emanuel Gold",
+    "tagline": "Marketing Technologist, Project Manager, & Web Developer",
+    "social": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/emanuel-gold",
+        "icon": "github"
+      },
+      {
+        "label": "Email",
+        "href": "mailto:hello@emanuelgold.com",
+        "icon": "mail"
+      }
+    ]
   }
 };
 
