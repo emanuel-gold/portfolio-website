@@ -59,15 +59,15 @@
     --brand-gold-color: var(--color-brand-gold);
     --brand-fuchsia-color: var(--color-brand-fuchsia);
     --brand-burnt-orange-color: var(--color-brand-burnt-orange);
-    --mockup-grid-x: 3.5rem;
+    --mockup-grid-x: clamp(3.125rem, 4.5vw, 3.5rem);
     --mockup-grid-gap-end: 5.2rem;
-    --mockup-grid-y: 3.5rem;
+    --mockup-grid-y: clamp(3.125rem, 4.5vw, 3.5rem);
     --mockup-grid-gap-top: 4rem;
     --mockup-grid-gap-bottom: 14rem;
-    --mockup-grid-middle-x: 250px;
-    --mockup-grid-middle-y: 1fr;
-    --mockup-screen-rotation: perspective(78rem) rotateY(328deg) rotateX(7deg) rotateZ(359.3deg);;
-    --mockup-grid-cols: [front-start] var(--mockup-grid-x) [mid-start] var(--mockup-grid-x) [back-start] var(--mockup-grid-middle-x) [front-end] var(--mockup-grid-x) [mid-end] var(--mockup-grid-x) [back-end];
+    --mockup-grid-middle-x: clamp(220px, 28vw, 320px);
+    --mockup-grid-middle-y: auto;
+    --mockup-screen-rotation: perspective(69rem) rotateY(340deg) rotateX(3deg) rotateZ(359deg);
+    --mockup-grid-cols: [back-start] var(--mockup-grid-x) [mid-start] var(--mockup-grid-x) [front-start] var(--mockup-grid-middle-x) [back-end] var(--mockup-grid-x) [mid-end] var(--mockup-grid-x) [front-end];
     --mockup-grid-rows: [front-top] var(--mockup-grid-y) [mid-top] var(--mockup-grid-y) [back-top] var(--mockup-grid-middle-y) [front-bottom] var(--mockup-grid-y) [mid-bottom] var(--mockup-grid-y) [back-bottom];
     color-scheme: light dark;
   }
@@ -226,7 +226,7 @@
   }
 
   .mockup-screen {
-    @apply -m-2 rounded-lg p-2 ring-1 ring-gray-900/10 ring-inset lg:-m-4 lg:p-3 dark:bg-white/80 dark:ring-white/10;
+    @apply -m-2 rounded-lg p-2 ring-1 ring-gray-900/20 ring-inset lg:-m-4 lg:p-3 dark:bg-white/30 dark:ring-zinc-200/40;
     backdrop-filter: blur(12px) saturate(3) brightness(1.25) contrast(1);
     transform: var(--mockup-screen-rotation);
     transition: transform 0.5s ease-in-out;
@@ -248,22 +248,28 @@
   }
 
   .mockup-monitor {
-    grid-column: monitor-start / monitor-end;
-    grid-row-end: -1;
     rotate: -0.7deg;
   }
 
-  .mockup-screen:hover {
-    transform: rotate(0deg) translateY(-30px);
-    transition: 0.5s ease-out;
-  }
+  @media (hover: hover) {
+    .mockup-screen:hover {
+      transform: rotate(0deg) translateY(-30px);
+      transition: 0.5s ease-out;
+    }
 
-  .mockup-screen:not(:first-child):hover {
-    transform: rotate(10deg) translateY(-13px) translateX(200px);
-    transition: 0.5s ease-out;
-  }
+    .mockup-screen:not(:first-child):hover {
+      transform: rotate(-6deg) translateY(-15px) translateX(clamp(-60px, -4vw, -30px));
+      transition: 0.5s ease-out;
+    }
 
-  .image-wrapper:has(.mockup-screen:not(:first-child):hover) .mockup-screen:not(:hover) {
-    transform: translateX(-50px) var(--mockup-screen-rotation);
+    .image-wrapper:has(.mockup-screen:not(:first-child):hover) .mockup-screen:first-child {
+      transform: translateX(clamp(50px, 8vw, 100px)) var(--mockup-screen-rotation);
+      transition: 0.5s ease-out;
+    }
+
+    .image-wrapper:has(.mockup-screen:not(:first-child):hover) .mockup-screen:not(:first-child):not(:hover) {
+      transform: translateX(clamp(80px, 12vw, 150px)) var(--mockup-screen-rotation);
+      transition: 0.5s ease-out;
+    }
   }
 }
