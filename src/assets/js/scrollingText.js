@@ -3,7 +3,6 @@
   const defaultAnimationSettings = {
     animationSpeed: 1000,
     animationPause: 4000,
-    animationScrollHeight: 240,
     animationEasingFunction: "cubic-bezier(0.2, 0.2, 0, 1.00)",
   };
 
@@ -50,20 +49,27 @@
       const {
         animationSpeed,
         animationPause,
-        animationScrollHeight,
         animationEasingFunction,
       } = settings;
 
       const scrollTime = animationSpeed;
       const pauseTime = animationPause;
       const easingFunction = animationEasingFunction;
-      const itemHeight = animationScrollHeight;
       const listItems = list.querySelectorAll(".header-scrolling-list-item");
       const itemCount = listItems.length - 1;
+
+      const getItemHeight = () => {
+        const firstItem = listItems[0];
+        return firstItem ? firstItem.getBoundingClientRect().height : 240;
+      };
+
+      let itemHeight = getItemHeight();
+
       heroElement.style.setProperty(
         "--hero-heading-scroll-height",
         `${itemHeight}px`
       );
+
       let animationTimeout;
       let currentIndex = 0;
 
@@ -91,27 +97,49 @@
           animationTimeout = setTimeout(animateToNext, pauseTime);
         }, pauseTime);
       };
-      ((breakpoint, onMatch, onNoMatch) => {
-        const mediaQuery = window.matchMedia(`(min-width: ${breakpoint})`);
-        const handleChange = () => {
-          mediaQuery.matches ? onMatch() : onNoMatch();
-        };
-        handleChange();
-        mediaQuery.addEventListener("change", handleChange);
-      })(
-        "900px",
-        () => {
-          resetAnimation();
-          animationTimeout = setTimeout(animateToNext, pauseTime);
-        },
-        () => {
-          if (animationTimeout) {
-            clearTimeout(animationTimeout);
-            animationTimeout = null;
-          }
-          resetAnimation();
+
+      const startAnimation = () => {
+        itemHeight = getItemHeight();
+        heroElement.style.setProperty(
+          "--hero-heading-scroll-height",
+          `${itemHeight}px`
+        );
+        resetAnimation();
+        animationTimeout = setTimeout(animateToNext, pauseTime);
+      };
+
+      const stopAnimation = () => {
+        if (animationTimeout) {
+          clearTimeout(animationTimeout);
+          animationTimeout = null;
         }
-      );
+        resetAnimation();
+      };
+
+      // Recalculate on resize
+      let resizeTimeout;
+      const resizeObserver = new ResizeObserver(() => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          const newHeight = getItemHeight();
+          if (Math.abs(newHeight - itemHeight) > 2) {
+            itemHeight = newHeight;
+            heroElement.style.setProperty(
+              "--hero-heading-scroll-height",
+              `${itemHeight}px`
+            );
+            stopAnimation();
+            startAnimation();
+          }
+        }, 200);
+      });
+
+      if (listItems[0]) {
+        resizeObserver.observe(listItems[0]);
+      }
+
+      // Start immediately — no breakpoint restriction
+      startAnimation();
     });
   };
   "loading" === document.readyState
