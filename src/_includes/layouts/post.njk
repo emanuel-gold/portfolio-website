@@ -14,7 +14,7 @@ pageType: post
         {{ icons.arrow_left('w-4 h-4') }}
         Back to portfolio
         </a>
-        <div id="portfolio-post-header" class="pb-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b dark:border-gray-800">
+        <div id="portfolio-post-header" class="pb-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b dark:border-slate-800">
           <div id="header-content-wrapper" class="mx-auto max-w-2xl">
             <span id="time-period" class="inline-flex items-center text-sm font-medium uppercase opacity-70 ">
               {{ period }}
@@ -27,9 +27,7 @@ pageType: post
             {% if tags %}
             <div class="mt-6 flex flex-wrap gap-2">
               {% for tag in tags %}
-                <span class="rounded-full border border-gray-200 px-3 py-1 text-xs font-medium uppercase opacity-80 dark:border-gray-700">
-                  {{ tag }}
-                </span>
+                <span class="tag-pill">{{ tag }}</span>
               {% endfor %}
             </div>
             {% endif %}
@@ -49,7 +47,7 @@ pageType: post
             {% endif %}
           </div>
           <div id="header-image-wrapper">
-            <img class="rounded-2xl" src="{{ header_image }}" alt="{{ title }}">
+            <img class="rounded-2xl" src="{{ header_image }}">
           </div>
         </div>
 

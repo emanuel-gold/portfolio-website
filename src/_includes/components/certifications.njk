@@ -1,18 +1,21 @@
-<section id="certifications" class="scroll-mt-24 py-14 sm:py-16 ">
+<section id="certifications" class="scroll-mt-24 py-14 sm:py-16">
   <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
     <div class="mb-10">
+      {% if site.certifications.eyebrow %}
+        <div class="mb-2 inline-block rounded-full border px-3 py-1 text-xs uppercase opacity-70">{{ site.certifications.eyebrow }}</div>
+      {% endif %}
       <h2>Certifications</h2>
     </div>
-    <div id="cert-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {% for certification in site.certifications %}
-        <div id="cert-{{ loop.index }}" class="flex items-center gap-4 lg:gap-3 rounded-2xl border p-4 bg-white dark:bg-gray-950 dark:border-gray-800" data-aos="flip-right" data-aos-delay="{{ 100+loop.index0*200 }}" data-aos-anchor-placement="top-bottom">
-
+    <div id="cert-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {# Standalone certifications (PMP) #}
+      {% for certification in site.certifications.standalone %}
+        <div class="flex items-center gap-4 rounded-2xl border p-5 bg-white dark:bg-gray-950 dark:border-slate-800" data-aos="fade-up" data-aos-delay="{{ 100 + loop.index0 * 100 }}">
           {% if certification.image and certification.link %}
-            <a class="w-[75px] shrink-0"  href="{{ certification.link }}" target="_blank">
-              <img class="object-cover aspect-square rounded-full" width="75" height="75" alt="{{ certification.name }}" src="{{ certification.image }}">
+            <a class="w-[85px] shrink-0" href="{{ certification.link }}" target="_blank">
+              <img class="object-cover aspect-square rounded-full" width="85" height="85" alt="{{ certification.name }}" src="{{ certification.image }}">
             </a>
           {% elif certification.image %}
-            <img class="w-[75px] shrink-0 object-cover aspect-square rounded-full" width="75" height="75" alt="{{ certification.name }}" src="{{ certification.image }}">
+            <img class="w-[85px] shrink-0 object-cover aspect-square rounded-full" width="85" height="85" alt="{{ certification.name }}" src="{{ certification.image }}">
           {% endif %}
           <div class="flex flex-col gap-2">
             {% if certification.link %}
@@ -20,8 +23,34 @@
             {% else %}
               <span class="font-medium">{{ certification.name }}</span>
             {% endif %}
-            <a href="{{ certification.issuer.link }}" target="_blank" class="max-w-max text-center rounded-full border px-2 py-0.5 text-[0.65rem] xl:text-xs transition hover:bg-gray-100 dark:hover:bg-gray-800">{{ certification.issuer.name }}</a>
+            <a href="{{ certification.issuer.link }}" target="_blank" class="max-w-max rounded-full border px-2 py-0.5 text-xs transition hover:bg-slate-100 dark:hover:bg-slate-800 dark:border-slate-700">{{ certification.issuer.name }}</a>
           </div>
+        </div>
+      {% endfor %}
+
+      {# Grouped certifications (HubSpot Academy) #}
+      {% for group in site.certifications.groups %}
+        <div class="lg:col-span-2 rounded-2xl border p-5 bg-white dark:bg-gray-950 dark:border-slate-800" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center gap-4 mb-4">
+            {% if group.image %}
+              <a class="w-[60px] shrink-0" href="{{ group.issuer.link }}" target="_blank">
+                <img class="object-cover aspect-square rounded-full" width="60" height="60" alt="{{ group.issuer.name }}" src="{{ group.image }}">
+              </a>
+            {% endif %}
+            <div>
+              <a href="{{ group.issuer.link }}" target="_blank" class="font-medium transition hover:text-fuchsia-500 hover:underline">{{ group.issuer.name }}</a>
+            </div>
+          </div>
+          <ul class="list-none m-0 p-0 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {% for cert in group.certs %}
+              <li class="m-0 p-0">
+                <a href="{{ cert.link }}" target="_blank" class="flex items-center gap-2 rounded-xl border px-3 py-2.5 text-sm transition hover:bg-slate-100 dark:hover:bg-slate-800 dark:border-slate-700">
+                  <svg class="w-4 h-4 shrink-0 text-brand-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  {{ cert.name }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
         </div>
       {% endfor %}
     </div>

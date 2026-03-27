@@ -1,0 +1,75 @@
+<div class="relative z-10 mb-6 flex flex-col-reverse justify-between gap-3 sm:flex-row sm:items-center" data-aos="fade-up" data-aos-anchor="#projects-animated" data-aos-delay="100">
+      {# ── Mobile: floating select (< lg) ── #}
+      <div class="relative z-50 lg:hidden" data-tag-select>
+        <button
+          type="button"
+          class="flex w-full items-center justify-between rounded-xl border bg-gray-200 px-4 py-2 text-sm shadow-sm focus:outline-none focus:ring dark:border-slate-800 dark:bg-gray-900"
+          data-tag-select-trigger
+          aria-expanded="false"
+          aria-haspopup="listbox"
+        >
+          <span class="truncate"><span class="opacity-60">Tag:</span> <span data-tag-select-label>Featured</span></span>
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="ml-2 size-4 shrink-0 opacity-50">
+            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div
+          class="absolute z-50 mt-1 hidden max-h-60 w-full overflow-auto rounded-xl border bg-white py-1 text-sm shadow-lg dark:border-slate-800 dark:bg-gray-900"
+          role="listbox"
+          data-tag-select-panel
+        >
+          <div
+            class="group relative cursor-default select-none py-2 pr-4 pl-8 hover:bg-slate-100 dark:hover:bg-slate-800"
+            role="option"
+            data-tag-option="All"
+          >
+            <span class="block truncate" data-tag-option-text>Featured</span>
+            <span class="absolute inset-y-0 left-0 flex items-center pl-1.5 text-brand-fuchsia" data-tag-check>
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="size-5">
+                <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+              </svg>
+            </span>
+          </div>
+          {% for tag in allTags %}
+            <div
+              class="group relative cursor-default select-none py-2 pr-4 pl-8 hover:bg-slate-100 dark:hover:bg-slate-800"
+              role="option"
+              data-tag-option="{{ tag }}"
+            >
+              <span class="block truncate" data-tag-option-text>{{ tag }}</span>
+              <span class="absolute inset-y-0 left-0 hidden items-center pl-1.5 text-brand-fuchsia" data-tag-check>
+                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="size-5">
+                  <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                </svg>
+              </span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      {# ── Desktop: pill buttons (lg+) ── #}
+      <div id="tag-list" class="hidden flex-wrap items-center gap-2 lg:flex" data-tag-list>
+        <button
+          class="rounded-full border border-transparent bg-gray-900 px-3 py-1 text-sm text-white transition dark:bg-white dark:text-gray-900"
+          data-badge="All"
+          type="button"
+        >
+          Featured
+        </button>
+        {% for tag in allTags %}
+          <button
+            class="rounded-full border px-3 py-1 text-sm transition hover:bg-slate-100 dark:hover:bg-slate-800"
+            data-badge="{{ tag }}"
+            type="button"
+          >
+            {{ tag }}
+          </button>
+        {% endfor %}
+      </div>
+      <input
+        class="w-full rounded-xl border bg-gray-200 px-4 py-2 text-sm shadow-sm placeholder:opacity-60 focus:outline-none focus:ring dark:border-slate-800 dark:bg-gray-900 sm:w-64"
+        type="search"
+        placeholder="Search projects..."
+        data-search-input
+      />
+    </div>

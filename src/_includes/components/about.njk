@@ -11,15 +11,18 @@
         {% for paragraph in site.about.paragraphs %}
           <p class="mb-4 leading-relaxed opacity-90">{{ paragraph }}</p>
         {% endfor %}
-        <ul class="list-inside list-disc opacity-90">
+        <ul class="list-none m-0 p-0 opacity-90">
           {% for point in site.about.bulletPoints %}
-            <li>{{ point }}</li>
+            <li class="flex items-start gap-3 mb-3 m-0 p-0 list-none">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-gold shrink-0 mt-2.5"></span>
+              <span>{{ point }}</span>
+            </li>
           {% endfor %}
         </ul>
       </div>
-      <div class="rounded-2xl border p-5 bg-white dark:bg-gray-950 dark:border-gray-800" data-aos="flip-right" data-aos-delay="500">
-        <h4 class="mb-3">Quick facts</h4>
-        <dl class="grid grid-cols-1 gap-3 text-sm">
+      <div class="rounded-2xl border-2 border-brand-gold p-5.5 bg-white dark:bg-gray-950 dark:border-brand-gold" data-aos="fade-left" data-aos-delay="500">
+        {# <h4 class="mb-3">Quick facts</h4> #}
+        <dl class="grid grid-cols-1 gap-4 text-md">
           {% for fact in site.about.facts %}
             <div class="flex items-center justify-between">
               <dt class="opacity-70">{{ fact.term }}</dt>

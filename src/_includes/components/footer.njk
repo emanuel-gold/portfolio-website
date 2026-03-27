@@ -1,5 +1,46 @@
-<footer class="border-t py-10 text-center text-xs opacity-70 dark:border-gray-800">
+{% import "components/icons.njk" as icons %}
+<footer class="border-t py-12 dark:border-slate-800">
   <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
-    <p>© <span data-current-year class="tabular-nums"></span> {{ site.footer.owner }}. Built with <a href="https://www.11ty.dev/" target="_blank">Eleventy</a> &amp; <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS.</a></p>
+    <div class="grid grid-cols-1 gap-8 mb-8 md:grid-cols-2">
+      <div>
+        <a href="/" class="flex items-center gap-2 text-xl font-display mb-2" style="letter-spacing: 0.1em;" data-scroll>
+          <span class="inline-block h-3 w-3 rounded-full brand-gradient-diagonal"></span>
+          <span>{{ site.meta.siteName }}</span>
+        </a>
+        <p class="text-sm opacity-70 mb-4">{{ site.footer.tagline }}</p>
+        <div class="flex items-center gap-3">
+          {% for link in site.footer.social %}
+            <a
+              href="{{ link.href }}"
+              class="rounded-full border p-2 opacity-70 transition hover:opacity-100 hover:bg-slate-100 dark:hover:bg-slate-800 dark:border-slate-700"
+              aria-label="{{ link.label }}"
+              target="_blank"
+            >
+              {% if link.icon == "github" %}
+                {{ icons.github('w-4 h-4') }}
+              {% elif link.icon == "mail" %}
+                {{ icons.mail('w-4 h-4') }}
+              {% endif %}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-x-12 gap-y-2 md:justify-end">
+        <nav class="flex flex-col gap-2 items-end">
+          {% for item in site.navigation %}
+            <a href="{{ item.url }}" class="text-sm opacity-70 transition hover:opacity-100" data-scroll>{{ item.label }}</a>
+          {% endfor %}
+          <a
+            href="{{ site.resume.url }}"
+            class="text-sm opacity-70 transition hover:opacity-100 inline-flex items-center gap-1"
+            target="_blank"
+          >
+            {{ icons.file_text('w-4 h-4') }} Resume
+          </a>
+        </nav>
+      </div>
+    </div>
+    <hr class="border-t dark:border-slate-800 mb-6">
+    <p class="text-center text-xs opacity-60">© <span data-current-year class="tabular-nums"></span> {{ site.footer.owner }}. Built with <a href="https://www.11ty.dev/" target="_blank">Eleventy</a> &amp; <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS.</a></p>
   </div>
 </footer>

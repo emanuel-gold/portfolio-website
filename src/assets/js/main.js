@@ -90,6 +90,53 @@ const projectCards = Array.from(projectGrid?.querySelectorAll('[data-project]') 
 const emptyState = document.querySelector('[data-empty-state]');
 const shouldRestrictToFeatured = projectGrid ? projectGrid.dataset.showFeaturedOnly !== 'false' : true;
 
+const tagSelect = document.querySelector('[data-tag-select]');
+const tagSelectTrigger = document.querySelector('[data-tag-select-trigger]');
+const tagSelectPanel = document.querySelector('[data-tag-select-panel]');
+const tagSelectLabel = document.querySelector('[data-tag-select-label]');
+const tagOptions = Array.from(document.querySelectorAll('[data-tag-option]'));
+let isTagSelectOpen = false;
+
+function setTagSelectOpen(open) {
+  if (!tagSelectTrigger || !tagSelectPanel) return;
+  isTagSelectOpen = open;
+  tagSelectTrigger.setAttribute('aria-expanded', String(open));
+  tagSelectPanel.classList.toggle('hidden', !open);
+}
+
+function syncTagSelect(activeTag) {
+  if (!tagSelectLabel) return;
+  const activeOption = tagOptions.find((o) => o.dataset.tagOption === activeTag);
+  if (activeOption) {
+    tagSelectLabel.textContent = activeOption.querySelector('[data-tag-option-text]').textContent;
+  }
+  tagOptions.forEach((option) => {
+    const isActive = option.dataset.tagOption === activeTag;
+    const check = option.querySelector('[data-tag-check]');
+    if (check) {
+      check.classList.toggle('hidden', !isActive);
+      check.classList.toggle('flex', isActive);
+    }
+    option.querySelector('[data-tag-option-text]').classList.toggle('font-semibold', isActive);
+  });
+}
+
+if (tagSelectTrigger && tagSelectPanel) {
+  tagSelectTrigger.addEventListener('click', () => setTagSelectOpen(!isTagSelectOpen));
+
+  document.addEventListener('pointerdown', (event) => {
+    if (!isTagSelectOpen) return;
+    if (tagSelect && tagSelect.contains(event.target)) return;
+    setTagSelectOpen(false);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && isTagSelectOpen) {
+      setTagSelectOpen(false);
+    }
+  });
+}
+
 const filterState = {
   tag: 'All',
   query: '',
@@ -116,32 +163,43 @@ function applyFilters() {
   }
 }
 
-if (badgeButtons.length) {
-  badgeButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      filterState.tag = button.dataset.badge;
-      
-      const STRIP_ON_ACTIVE = [
-        'hover:bg-gray-100',
-        'dark:hover:bg-gray-800',
-      ];
-      
-      badgeButtons.forEach((btn) => {
-        const isActive = btn.dataset.badge === filterState.tag;
-        btn.classList.toggle('border-transparent', isActive);
-        btn.classList.toggle('bg-gray-900', isActive);
-        btn.classList.toggle('text-white', isActive);
-        btn.classList.toggle('dark:bg-white', isActive);
-        btn.classList.toggle('dark:text-gray-900', isActive);
-        
-        STRIP_ON_ACTIVE.forEach(cls => {
-          btn.classList.toggle(cls, !isActive);
-        });
-      });
-      applyFilters();
+function syncBadgeButtons(activeTag) {
+  const STRIP_ON_ACTIVE = [
+    'hover:bg-slate-100',
+    'dark:hover:bg-slate-800',
+  ];
+  badgeButtons.forEach((btn) => {
+    const isActive = btn.dataset.badge === activeTag;
+    btn.classList.toggle('border-transparent', isActive);
+    btn.classList.toggle('bg-gray-900', isActive);
+    btn.classList.toggle('text-white', isActive);
+    btn.classList.toggle('dark:bg-white', isActive);
+    btn.classList.toggle('dark:text-gray-900', isActive);
+    STRIP_ON_ACTIVE.forEach(cls => {
+      btn.classList.toggle(cls, !isActive);
     });
   });
 }
+
+function selectTag(tag) {
+  filterState.tag = tag;
+  syncBadgeButtons(tag);
+  syncTagSelect(tag);
+  applyFilters();
+}
+
+if (badgeButtons.length) {
+  badgeButtons.forEach((button) => {
+    button.addEventListener('click', () => selectTag(button.dataset.badge));
+  });
+}
+
+tagOptions.forEach((option) => {
+  option.addEventListener('click', () => {
+    selectTag(option.dataset.tagOption);
+    setTagSelectOpen(false);
+  });
+});
 
 if (searchInput) {
   searchInput.addEventListener('input', () => {

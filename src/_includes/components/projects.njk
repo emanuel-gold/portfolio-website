@@ -1,109 +1,48 @@
 {% import "components/icons.njk" as icons %}
+{% from "macros/projectCard.njk" import projectCard %}
 {% set projects = collections.portfolio | sortByOrderThenDate %}
 {% set featuredProjects = collections.featuredPortfolio | default([]) | sortByOrderThenDate %}
 {% set featuredDefaults = featuredProjects | slice(0, 3) %}
 {% set featuredOverflow = featuredProjects | slice(3) %}
 {% set allTags = projects | allTags %}
 
-{% macro projectCard(project, isInitiallyVisible, includeInAllFilter) %}
-  <article
-    class="isolate relative group flex flex-col rounded-2xl border p-5 shadow-md transition bg-white dark:bg-gray-950 dark:border-brand-dark-shadow/45 hover:shadow-lg{% if not isInitiallyVisible %} hidden{% endif %}"
-    data-project
-    data-tags="{{ project.data.tags | default([]) | join(',') }}"
-    data-featured="{{ (includeInAllFilter and 'true') or 'false' }}"
-  >
-    <div class="mb-3 items-center justify-between">
-      <h3 class="leading-tight">
-        <a href="{{ project.url }}" class="hover:text-fuchsia-500">
-          <span class="absolute inset-0 z-10"></span>
-          {{ project.data.title }}</a>
-      </h3>
-      <span class="text-xs opacity-60">{{ project.data.period }}</span>
-    </div>
-    <p class="mb-4 text-sm opacity-90">{{ project.data.blurb | safe}}</p>
-    <div class="mb-8 flex flex-wrap gap-2">
-      {% for tag in project.data.tags %}
-        <span class="rounded-full border px-2 py-0.5 text-xs opacity-80 dark:border-gray-800">{{ tag }}</span>
-      {% endfor %}
-    </div>
-    <div class="flex items-center mt-auto gap-4">
-      {# <a href="{{ project.url }}" class="inline-flex items-center gap-1 text-xs font-medium hover:underline">
-        {{ icons.file_text('w-4 h-4') }} Read case study
-      </a> #}
-      {% if project.data.links.preview.url %}
-        <a href="{{ project.data.links.preview.url }}" class="z-20 rounded-full outline outline-offset-2 px-3 py-1 text-xs transition hover:bg-slate-100 dark:hover:bg-slate-800 inline-flex items-center gap-1 font-medium" target="_blank" {% if links.preview.nofollow %}rel="nofollow"{% endif %}>
-          {{ icons.external_link('w-4 h-4') }} Visit Live Site
-        </a>
-      {% endif %}
-      {% if project.data.links.repo %}
-        <a href="{{ project.data.links.repo }}" class="z-20 rounded-full outline outline-offset-2 px-3 py-1 text-xs transition hover:bg-slate-100 dark:hover:bg-slate-800 inline-flex items-center gap-1 font-medium" target="_blank">
-          {{ icons.github('w-4 h-4') }} View on Github
-        </a>
-      {% endif %}
-    </div>
-  </article>
-{% endmacro %}
-<section id="projects" class="shadow-full scroll-mt-24 py-14 sm:py-16 dark:bg-brand-bright-blue">
+<section id="projects" class="scroll-mt-24 py-14 sm:py-16">
   <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
     <div class="mb-10">
       <div class="mb-2 inline-block rounded-full border px-3 py-1 text-xs uppercase opacity-70">Recent work</div>
-      <h2>My Recent Projects</h2>
-    </div>
-<div id="projects-animated">
-    <div class="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-center" data-aos="fade-up" data-aos-anchor="#projects-animated" data-aos-delay="100">
-      <div id="tag-list" class="flex flex-wrap items-center gap-2" data-tag-list>
-        <button
-          class="rounded-full border border-transparent bg-gray-900 px-3 py-1 text-sm text-white transition dark:bg-white dark:text-gray-900"
-          data-badge="All"
-          type="button"
-        >
-          Featured
-        </button>
-        {% for tag in allTags %}
-          <button
-            class="rounded-full border px-3 py-1 text-sm transition hover:bg-gray-100 dark:hover:bg-gray-800"
-            data-badge="{{ tag }}"
-            type="button"
-          >
-            {{ tag }}
-          </button>
-        {% endfor %}
+        <h2>My Recent Projects</h2>
       </div>
-      <input
-        class="w-full rounded-xl border bg-gray-200 px-4 py-2 shadow-sm placeholder:opacity-60 focus:outline-none focus:ring dark:border-gray-800 dark:bg-gray-900 sm:w-64"
-        type="search"
-        placeholder="Search projects..."
-        data-search-input
-      />
-    </div>
-  
-    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3" data-project-grid data-aos="fade-up" data-aos-anchor="#projects-animated" data-aos-delay="300">
+<div id="projects-animated">
+
+    {% include "partials/tag-filter.njk" %}
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" data-project-grid data-aos="fade-up" data-aos-anchor="#projects-animated" data-aos-delay="300">
       {% if featuredDefaults | length > 0 %}
         {% for project in featuredDefaults %}
-          {{ projectCard(project, true, true) | safe }}
+          {{ projectCard(project, "grid", true, "true") | safe }}
         {% endfor %}
         {% for project in featuredOverflow %}
-          {{ projectCard(project, false, false) | safe }}
+          {{ projectCard(project, "grid", false, "false") | safe }}
         {% endfor %}
         {% for project in projects %}
           {% if project not in featuredProjects %}
-            {{ projectCard(project, false, false) | safe }}
+            {{ projectCard(project, "grid", false, "false") | safe }}
           {% endif %}
         {% endfor %}
       {% else %}
         {% for project in projects %}
-          {{ projectCard(project, loop.index <= 3, loop.index <= 3) | safe }}
+          {{ projectCard(project, "grid", loop.index <= 3, (loop.index <= 3) | string) | safe }}
         {% endfor %}
       {% endif %}
     </div>
     <p class="hidden mt-4 py-4 text-center opacity-70" data-empty-state>No projects match that search.</p>
-    <div class="mt-8 inline-flex" data-aos="fade-up" data-aos-anchor="#projects-animated" data-aos-delay="500"> 
+    <div class="mt-8 inline-flex" data-aos="fade-up" data-aos-anchor="#projects-animated" data-aos-delay="500">
       <a
       href="/portfolio/"
       class="cta-solid"
       data-scroll
       >
-      See all my work 
+      See all my work
         <svg class="overflow-visible ml-1" width="4" viewBox="0 0 3 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M0 0L3 3L0 6"></path>
         </svg>
