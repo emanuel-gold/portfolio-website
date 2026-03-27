@@ -226,7 +226,7 @@
   }
 
   .mockup-screen {
-    @apply -m-2 rounded-lg p-2 ring-1 ring-gray-900/10 ring-inset lg:-m-4 lg:p-3 dark:bg-white/80 dark:ring-white/10;
+    @apply -m-2 rounded-lg p-2 ring-1 ring-gray-900/20 ring-inset lg:-m-4 lg:p-3 dark:bg-white/30 dark:ring-zinc-200/40;
     backdrop-filter: blur(12px) saturate(3) brightness(1.25) contrast(1);
     transform: var(--mockup-screen-rotation);
     transition: transform 0.5s ease-in-out;
