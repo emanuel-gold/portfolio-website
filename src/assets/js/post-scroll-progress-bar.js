@@ -6,3 +6,4 @@ function progressIndicator() {
     var scrolled = (winScroll / height) * 100;
     document.getElementById("progressBar").style.width = scrolled + "%";
 }
+//TODO Check vs. file on desktop
