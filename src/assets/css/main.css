@@ -1,32 +1,77 @@
-@import "fonts.css";
-@import "typescale.css";
-@import "imageHotspots.css";
+@import './fonts.css' layer(base);
+@import './typescale.css' layer(base);
+@import './imageHotspots.css' layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 @plugin "@tailwindcss/typography";
 
+@config '../../../tailwind.config.js';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility max-w-post {
+  max-width: calc(700px + 8rem);
+}
+
+@utility brand-gradient-right {
+  @apply bg-linear-to-r from-brand-fuchsia from-10% via-brand-gradient-midpoint via-60% to-brand-gold to-85%;
+}
+
+@utility brand-gradient-diagonal {
+  @apply bg-linear-to-tr from-brand-fuchsia to-brand-gold;
+}
+
+@utility cta-solid {
+  @apply h-12 flex items-center justify-center gap-2 rounded-xl bg-brand-gold hover:bg-[oklch(0.75_0.16_86.49)] px-4 py-2 font-medium text-slate-900;
+}
+
+@utility cta-transparent {
+  @apply h-12 transition flex items-center justify-center gap-2 rounded-xl border px-4 py-2 font-medium hover:border-slate-900 hover:bg-slate-100 backdrop-blur-sm dark:hover:bg-slate-800/70 dark:hover:border-white;
+}
+
+@utility cta-tertiary {
+  @apply z-20 inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-medium transition hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800;
+}
+
+@utility tag-pill {
+  @apply rounded-full border px-2.5 py-0.5 text-xs font-medium uppercase opacity-80 dark:border-slate-700;
+}
+
 @layer base {
   :root {
-    --brand-gold-color: theme('colors.brand-gold');
-    --brand-fuchsia-color: theme('colors.brand-fuchsia');
-    --brand-burnt-orange-color: theme('colors.brand-burnt-orange');
-    --brand-dark-shadow-lch: theme('colors.brand-dark-shadow-lch');
-    --brand-dark-shadow-color: oklch(theme('colors.brand-dark-shadow-lch') / 1);
-    --shadow-color: rgb(0 0 0 / 0.18);
-    --full-shadow: 0 4px 6px -1px var(--full-shadow-color), 0 2px 4px -2px var(--full-shadow-color), 0 -4px 6px -1px var(--full-shadow-color), 0 -2px 4px -2px var(--full-shadow-color);
-    --full-shadow-color: rgb(0 0 0 / 0.1);
+    --brand-gold-color: var(--color-brand-gold);
+    --brand-fuchsia-color: var(--color-brand-fuchsia);
+    --brand-burnt-orange-color: var(--color-brand-burnt-orange);
+    --mockup-grid-x: 3.5rem;
+    --mockup-grid-gap-end: 5.2rem;
+    --mockup-grid-y: 3.5rem;
+    --mockup-grid-gap-top: 4rem;
+    --mockup-grid-gap-bottom: 14rem;
+    --mockup-grid-middle-x: 250px;
+    --mockup-grid-middle-y: 1fr;
+    --mockup-screen-rotation: perspective(78rem) rotateY(328deg) rotateX(7deg) rotateZ(359.3deg);;
+    --mockup-grid-cols: [front-start] var(--mockup-grid-x) [mid-start] var(--mockup-grid-x) [back-start] var(--mockup-grid-middle-x) [front-end] var(--mockup-grid-x) [mid-end] var(--mockup-grid-x) [back-end];
+    --mockup-grid-rows: [front-top] var(--mockup-grid-y) [mid-top] var(--mockup-grid-y) [back-top] var(--mockup-grid-middle-y) [front-bottom] var(--mockup-grid-y) [mid-bottom] var(--mockup-grid-y) [back-bottom];
     color-scheme: light dark;
   }
 
-  .dark {
-    --shadow-color: oklch(var(--brand-dark-shadow-lch) / var(--shadow-alpha));
-    --shadow-alpha: 0.73;
-    --full-shadow: 0 -2px 60px 6px var(--full-shadow-color); 
-    --full-shadow-color: oklch(16.692% 0.04737 266.9 / 0.729);
-  }
 
   body {
     @apply font-body;
@@ -39,6 +84,10 @@
   }
 
   h1, h2, h3, h4, h5, h6 { @apply font-display; }
+
+  button {
+    cursor: pointer;
+  }
 
   #prose h1, #prose h2, #prose h3, #prose h4, #prose h5, #prose h6 { @apply mt-10 leading-none; }
 
@@ -164,46 +213,57 @@
   *,
   ::before,
   ::after {
-    @apply dark:border-gray-200;
+    @apply dark:border-slate-200;
     border-color: #ccc;
   }
 
   .progress-bar-wrapper {
-    @apply w-full h-1 z-[49];
+    @apply w-full h-1 z-49;
   }
 
   .progress-bar {
     @apply w-0 h-1 z-50 bg-brand-gold;
   }
-}
 
-@layer utilities {
-  .max-w-post {
-    max-width: calc(700px + 8rem);
-  }
-  .brand-gradient-right {
-    @apply bg-gradient-to-r from-brand-fuchsia from-10% via-brand-gradient-midpoint via-60% to-brand-gold to-85%;
+  .mockup-screen {
+    @apply -m-2 rounded-lg p-2 ring-1 ring-gray-900/10 ring-inset lg:-m-4 lg:p-3 dark:bg-white/80 dark:ring-white/10;
+    backdrop-filter: blur(12px) saturate(3) brightness(1.25) contrast(1);
+    transform: var(--mockup-screen-rotation);
+    transition: transform 0.5s ease-in-out;
   }
 
-  .brand-gradient-diagonal {
-    @apply bg-gradient-to-tr from-brand-fuchsia to-brand-gold;
+  .mockup-screen-front {
+    grid-column: front-start / front-end;
+    grid-row: front-top / front-bottom;
   }
 
-  .cta-solid {
-    @apply h-12 flex items-center justify-center gap-2 rounded-xl bg-brand-gold hover:brand-gradient-diagonal px-4 py-2 font-medium text-gray-900 hover:bg-transparent hover:text-white;
+  .mockup-screen-mid {
+    grid-column: mid-start / mid-end;
+    grid-row: mid-top / mid-bottom;
   }
 
-  .cta-transparent {
-    @apply h-12 transition flex items-center justify-center gap-2 rounded-xl border px-4 py-2 font-medium hover:border-gray-900 hover:bg-gray-200 backdrop-blur dark:hover:bg-gray-800/70 dark:hover:border-white;
+  .mockup-screen-back {
+    grid-column: back-start / back-end;
+    grid-row: back-top / back-bottom;
   }
 
-  .shadow-full {
-    --tw-shadow: var(--full-shadow);
-    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  .mockup-monitor {
+    grid-column: monitor-start / monitor-end;
+    grid-row-end: -1;
+    rotate: -0.7deg;
   }
 
-  :is(.shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl) {
-    --tw-shadow-color: var(--shadow-color);
-    --tw-shadow: var(--tw-shadow-colored);
+  .mockup-screen:hover {
+    transform: rotate(0deg) translateY(-30px);
+    transition: 0.5s ease-out;
+  }
+
+  .mockup-screen:not(:first-child):hover {
+    transform: rotate(10deg) translateY(-13px) translateX(200px);
+    transition: 0.5s ease-out;
+  }
+
+  .image-wrapper:has(.mockup-screen:not(:first-child):hover) .mockup-screen:not(:hover) {
+    transform: translateX(-50px) var(--mockup-screen-rotation);
   }
 }
