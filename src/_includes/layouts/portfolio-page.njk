@@ -9,7 +9,7 @@ layout: layouts/base.njk
   {% set featuredProjects = collections.featuredPortfolio | default([]) | sortByOrderThenDate %}
   {% set allTags = projects | allTags %}
   <section id="projects" class="scroll-mt-24">
-    <div class="mx-auto w-full max-w-4xl px-5 sm:px-8">
+    <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
       <div class="mb-10">
         <div class="mb-2 inline-block rounded-full border px-3 py-1 text-xs uppercase opacity-70">All projects</div>
         <h2>Portfolio</h2>
@@ -18,13 +18,13 @@ layout: layouts/base.njk
       
       {% include "partials/tag-filter.njk" %}
       
-      <div class="grid grid-cols-1 gap-10" data-project-grid data-show-featured-only="false">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" data-project-grid data-show-featured-only="false">
         {% for project in featuredProjects %}
-          {{ projectCard(project, "list", true, "true") | safe }}
+          {{ projectCard(project, "grid", true, "true") | safe }}
         {% endfor %}
         {% for project in projects %}
           {% if project not in featuredProjects %}
-            {{ projectCard(project, "list", true, "false") | safe }}
+            {{ projectCard(project, "grid", true, "false") | safe }}
           {% endif %}
         {% endfor %}
       </div>

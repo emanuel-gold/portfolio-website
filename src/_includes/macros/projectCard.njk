@@ -1,58 +1,12 @@
 {% import "components/icons.njk" as icons %}
 
 {#
-  Shared project card macro.
-  variant: "grid" (vertical, for home page 3-col) or "list" (horizontal, for portfolio page)
+  Project card macro – single vertical card used on both home and portfolio pages.
   project: the 11ty collection item
   isInitiallyVisible: whether the card is visible by default (for filtering)
   isFeatured: whether this card is in the "featured" set
 #}
 {% macro projectCard(project, variant, isInitiallyVisible, isFeatured) %}
-  {% if variant == "list" %}
-    {# Horizontal card for portfolio page #}
-    <article
-      class="isolate relative group flex flex-col md:flex-row rounded-2xl border overflow-hidden shadow-md transition bg-white hover:bg-slate-100 dark:bg-gray-950 dark:hover:bg-slate-900/50 dark:border-slate-800 hover:shadow-lg{% if not isInitiallyVisible %} hidden{% endif %}"
-      data-project
-      data-tags="{{ project.data.tags | default([]) | join(',') }}"
-      data-featured="{{ isFeatured }}"
-    >
-      {% if project.data.thumbnail %}
-        <div class="flex flex-[0_0_240px]">
-          <img class="object-cover w-full h-full" src="{{ project.data.thumbnail }}" alt="{{ project.data.title }}" loading="lazy">
-        </div>
-      {% endif %}
-      <div class="flex flex-col flex-auto p-5 pb-7">
-        <div class="mb-3 flex items-center justify-between">
-          <h3 class="leading-tight">
-            <a href="{{ project.url }}" class="hover:text-fuchsia-500">
-              <span class="absolute inset-0 z-10"></span>
-              {{ project.data.title }}
-            </a>
-          </h3>
-          <span class="text-xs opacity-60">{{ project.data.period }}</span>
-        </div>
-        <p class="mb-4 text-sm opacity-90">{{ project.data.blurb | safe }}</p>
-        <div class="mb-8 flex flex-wrap gap-2">
-          {% for tag in project.data.tags %}
-            <span class="tag-pill">{{ tag }}</span>
-          {% endfor %}
-        </div>
-        <div class="flex items-center mt-auto gap-3">
-          {% if project.data.links.preview and project.data.links.preview.url %}
-            <a href="{{ project.data.links.preview.url }}" class="cta-tertiary" target="_blank" {% if project.data.links.preview.nofollow %}rel="nofollow"{% endif %}>
-              {{ icons.external_link('w-4 h-4') }} Visit Live Site
-            </a>
-          {% endif %}
-          {% if project.data.links.repo %}
-            <a href="{{ project.data.links.repo }}" class="cta-tertiary" target="_blank">
-              {{ icons.github('w-4 h-4') }} View on Github
-            </a>
-          {% endif %}
-        </div>
-      </div>
-    </article>
-  {% else %}
-    {# Vertical card for home page grid #}
     <article
       class="isolate relative group flex flex-col rounded-2xl border overflow-hidden shadow-md transition bg-white hover:bg-slate-100 dark:bg-gray-950 dark:hover:bg-slate-900/50 dark:border-slate-800 hover:shadow-lg{% if not isInitiallyVisible %} hidden{% endif %}"
       data-project
@@ -94,5 +48,4 @@
         </div>
       </div>
     </article>
-  {% endif %}
 {% endmacro %}
