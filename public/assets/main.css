@@ -2104,6 +2104,9 @@
   .object-cover {
     object-fit: cover;
   }
+  .object-left {
+    object-position: left;
+  }
   .p-0 {
     padding: calc(var(--spacing) * 0);
   }
