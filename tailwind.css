@@ -1,0 +1,275 @@
+@import './src/assets/css/fonts.css' layer(base);
+@import './src/assets/css/typescale.css' layer(base);
+@import './src/assets/css/imageHotspots.css' layer(base);
+
+@import 'tailwindcss';
+
+@plugin "@tailwindcss/typography";
+
+@config './tailwind.config.js';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility max-w-post {
+  max-width: calc(700px + 8rem);
+}
+
+@utility brand-gradient-right {
+  @apply bg-linear-to-r from-brand-fuchsia from-10% via-brand-gradient-midpoint via-60% to-brand-gold to-85%;
+}
+
+@utility brand-gradient-diagonal {
+  @apply bg-linear-to-tr from-brand-fuchsia to-brand-gold;
+}
+
+@utility cta-solid {
+  @apply h-12 flex items-center justify-center gap-2 rounded-xl bg-brand-gold hover:bg-[oklch(0.75_0.16_86.49)] px-4 py-2 font-medium text-slate-900;
+}
+
+@utility cta-transparent {
+  @apply h-12 transition flex items-center justify-center gap-2 rounded-xl border px-4 py-2 font-medium hover:border-slate-900 hover:bg-slate-100 backdrop-blur-sm dark:hover:bg-slate-800/70 dark:hover:border-white;
+}
+
+@utility cta-tertiary {
+  @apply z-20 inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-medium transition hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800;
+}
+
+@utility tag-pill {
+  @apply rounded-full border px-2.5 py-0.5 text-xs font-medium uppercase opacity-80 dark:border-slate-700;
+}
+
+@layer base {
+  :root {
+    --brand-gold-color: var(--color-brand-gold);
+    --brand-fuchsia-color: var(--color-brand-fuchsia);
+    --brand-burnt-orange-color: var(--color-brand-burnt-orange);
+    --mockup-grid-x: clamp(3.125rem, 4.5vw, 3.5rem);
+    --mockup-grid-gap-end: 5.2rem;
+    --mockup-grid-y: clamp(3.125rem, 4.5vw, 3.5rem);
+    --mockup-grid-gap-top: 4rem;
+    --mockup-grid-gap-bottom: 14rem;
+    --mockup-grid-middle-x: clamp(220px, 28vw, 320px);
+    --mockup-grid-middle-y: auto;
+    --mockup-screen-rotation: perspective(69rem) rotateY(340deg) rotateX(3deg) rotateZ(359deg);
+    --mockup-grid-cols: [back-start] var(--mockup-grid-x) [mid-start] var(--mockup-grid-x) [front-start] var(--mockup-grid-middle-x) [back-end] var(--mockup-grid-x) [mid-end] var(--mockup-grid-x) [front-end];
+    --mockup-grid-rows: [front-top] var(--mockup-grid-y) [mid-top] var(--mockup-grid-y) [back-top] var(--mockup-grid-middle-y) [front-bottom] var(--mockup-grid-y) [mid-bottom] var(--mockup-grid-y) [back-bottom];
+    color-scheme: light dark;
+  }
+
+
+  body {
+    @apply font-body;
+    font-size: var(--body-size);
+    font-weight: var(--body-weight);
+    line-height: var(--body-line-height);
+    letter-spacing: var(--body-letter-spacing);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 { @apply font-display; }
+
+  button {
+    cursor: pointer;
+  }
+
+  #prose h1, #prose h2, #prose h3, #prose h4, #prose h5, #prose h6 { @apply mt-10 leading-none; }
+
+  #prose p {
+    @apply my-0;
+  }
+
+  #prose {
+    grid-template-areas: "left content right";
+  }
+
+  #prose > * {
+    grid-area: content;
+    grid-row: auto;
+  }
+
+  #prose > figure {
+    @apply col-start-1 col-end-4 my-5 mx-auto;
+  }
+
+  #prose > figure img  {
+    @apply border-2 rounded-xl;
+  }
+
+  #siteLogo {
+    @apply font-display;
+    letter-spacing: 0.1em;
+  }
+  h1 {
+    font-size: clamp(var(--h1-size), 2.417rem + 2.083vw, var(--display-lg-size));
+    line-height: var(--h1-line-height);
+    letter-spacing: var(--h1-letter-spacing);
+  }
+  h2 {
+    font-size: clamp(var(--h2-size), 1.2115rem + 2.4038vw, var(--display-md-size));
+    line-height: var(--h2-line-height);
+    letter-spacing: var(--h2-letter-spacing);
+  }
+  h3 {
+    font-size: var(--h3-size);
+    line-height: var(--h3-line-height);
+    letter-spacing: var(--h3-letter-spacing);
+  }
+  h4 {
+    font-size: var(--h4-size);
+    line-height: var(--h4-line-height);
+    letter-spacing: var(--h4-letter-spacing);
+  }
+  h5 {
+    font-size: var(--h5-size);
+    line-height: var(--h5-line-height);
+    letter-spacing: var(--h5-letter-spacing);
+  }
+  h6 {
+    font-size: var(--h6-size);
+    line-height: var(--h6-line-height);
+    letter-spacing: var(--h6-letter-spacing);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  p a {
+    text-decoration: underline;
+  }
+
+  p a:hover,
+  header nav a:hover  {
+    @apply decoration-brand-fuchsia;
+  }
+
+  figcaption {
+    @apply italic mt-3;
+  }
+
+  /* Paragraph sizes using tokens */
+  p {
+    font-size: var(--body-size);
+    line-height: var(--body-line-height);
+    letter-spacing: var(--body-letter-spacing);
+    font-weight: var(--body-weight);
+  }
+  .body-xl {
+    font-size: var(--body-xl-size);
+    line-height: var(--body-xl-line-height);
+    letter-spacing: var(--body-xl-letter-spacing);
+    font-weight: var(--body-xl-weight);
+  }
+  .small {
+    font-size: var(--body-sm-size);
+    line-height: var(--body-sm-line-height);
+    letter-spacing: var(--body-sm-letter-spacing);
+    font-weight: var(--body-sm-weight);
+  }
+
+  figcaption,
+  table caption {
+    font-size: var(--caption-size);
+    line-height: var(--caption-line-height);
+    letter-spacing: var(--caption-letter-spacing);
+    font-weight: var(--caption-weight);
+  }
+
+  abbr[title] {
+    text-transform: uppercase;
+    font-size: var(--overline-size);
+    line-height: var(--overline-line-height);
+    letter-spacing: var(--overline-letter-spacing);
+    font-weight: var(--overline-weight);
+  }
+
+  p,
+  ul,
+  ol {
+    @apply mb-4;
+  }
+
+  ul {
+    @apply list-inside list-disc;
+  }
+
+  *,
+  ::before,
+  ::after {
+    @apply dark:border-slate-200;
+    border-color: #ccc;
+  }
+
+  .progress-bar-wrapper {
+    @apply w-full h-1 z-49;
+  }
+
+  .progress-bar {
+    @apply w-0 h-1 z-50 bg-brand-gold;
+  }
+
+  .mockup-screen {
+    @apply -m-2 rounded-lg p-2 ring-1 ring-gray-900/20 ring-inset lg:-m-4 lg:p-3 dark:bg-white/30 dark:ring-zinc-200/40;
+    backdrop-filter: blur(12px) saturate(3) brightness(1.25) contrast(1);
+    transform: var(--mockup-screen-rotation);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .mockup-screen-front {
+    grid-column: front-start / front-end;
+    grid-row: front-top / front-bottom;
+  }
+
+  .mockup-screen-mid {
+    grid-column: mid-start / mid-end;
+    grid-row: mid-top / mid-bottom;
+  }
+
+  .mockup-screen-back {
+    grid-column: back-start / back-end;
+    grid-row: back-top / back-bottom;
+  }
+
+  .mockup-monitor {
+    rotate: -0.7deg;
+  }
+
+  @media (hover: hover) {
+    .mockup-screen:hover {
+      transform: rotate(0deg) translateY(-30px);
+      transition: 0.5s ease-out;
+    }
+
+    .mockup-screen:not(:first-child):hover {
+      transform: rotate(-6deg) translateY(-15px) translateX(clamp(-60px, -4vw, -30px));
+      transition: 0.5s ease-out;
+    }
+
+    .image-wrapper:has(.mockup-screen:not(:first-child):hover) .mockup-screen:first-child {
+      transform: translateX(clamp(50px, 8vw, 100px)) var(--mockup-screen-rotation);
+      transition: 0.5s ease-out;
+    }
+
+    .image-wrapper:has(.mockup-screen:not(:first-child):hover) .mockup-screen:not(:first-child):not(:hover) {
+      transform: translateX(clamp(80px, 12vw, 150px)) var(--mockup-screen-rotation);
+      transition: 0.5s ease-out;
+    }
+  }
+}

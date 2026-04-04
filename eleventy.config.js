@@ -38,7 +38,6 @@ export default function (config) {
 
   config.addPassthroughCopy({ public: "." });
   config.addPassthroughCopy({ "src/assets/js": "assets" });
-  config.addWatchTarget("./src/assets/css/main.css");
 
   const imageHotspotsMacroCall = `{% from "macros/imageHotspots.njk" import imageHotspots %}{{ imageHotspots(src, alt, hotspots, options) }}`;
 

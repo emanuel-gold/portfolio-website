@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "npm run build:css && eleventy",
-    "build:css": "npx @tailwindcss/cli -i src/assets/css/main.css -o public/assets/main.css -m",
-    "watch:css": "npx @tailwindcss/cli -i src/assets/css/main.css -o public/assets/main.css -w",
+    "build:css": "npx @tailwindcss/cli -i ./tailwind.css -o ./_site/css/styles.css -m",
+    "watch:css": "npx @tailwindcss/cli -i ./tailwind.css -o ./_site/css/styles.css -w",
     "serve": "eleventy --serve --quiet",
     "dev": "npm-run-all --parallel watch:css serve",
     "site-editor": "node tools/site-editor/server.js"
