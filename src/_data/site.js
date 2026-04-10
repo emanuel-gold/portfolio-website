@@ -142,9 +142,8 @@ const site = {
     ],
     "bulletPoints": [
       "Comfortable across design systems, component libraries, and CMS templating.",
-      "No other way to say it: I'm a fast learner. I'll figure it out.",
-      "Documentation, so future-you doesn't hate present-me.",
-      "Communication, because you have enough to worry about. "
+      "Need a custom solution? Let's talk and I'll get it done.",
+      "Clear documentation so your team can take over right away."
     ],
     "facts": [
       {
