@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="flex flex-wrap gap-x-12 gap-y-2 md:justify-end">
-        <nav class="flex flex-col gap-2 items-end">
+        <nav class="flex flex-col gap-2 md:items-end">
           {% for item in site.navigation %}
             <a href="{{ item.url }}" class="text-sm opacity-70 transition hover:opacity-100" data-scroll>{{ item.label }}</a>
           {% endfor %}
